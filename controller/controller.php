@@ -24,15 +24,13 @@ function allChapters() {
 }
 
 // Récupération de l'ID des chapitres
-function getIdChapter() {
-    $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();
-    $commentManager = new \Elodie\Projet4\Model\CommentManager();
+// function getIdChapter() {
+//     $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();
 
-    $chapter = $chapterManager->getChapter($_GET['id']);
-    $comment = $commentManager->getComments($_GET['id']);
+//     $chapter = $chapterManager->getChapter($_GET['id']);
 
-    require('view/frontend/viewChapters.php');
-}
+//     require('view/frontend/viewChapters.php');
+// }
 
 // Récupération des commentaires
 function addComment($chapterId, $author, $comment) {

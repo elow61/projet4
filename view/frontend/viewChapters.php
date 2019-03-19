@@ -2,39 +2,34 @@
 <?php ob_start(); ?>
 
     <section id="chapters">
-        <div class="btn">
-            <?php
+                <?php
                 while ($data = $chapters->fetch()) {
-            ?>
-                <div class="btn-chapter">
+                ?>
                     <a href="index.php?action=allChapters&id=<?= $data['id'] ?>">
                         <button id="button"><?= htmlspecialchars($data['title']) ?></button>
                     </a>  
-                </div>
-        </div>
-        
-        <?php
-                if ($_GET['id'] == $data['id']) {
-        ?>
-                    <div class="chapter">
-                        <h2>
-                            <?= htmlspecialchars($data['title']) ?>
-                        </h2>
-                        <br />
-                        <p>
-                            <?= nl2br(htmlspecialchars($data['chapter'])) ?>
-                        </p>
-                        <br />
-                    </div>
-        <?php
-                } 
-            }
-            $chapters->closeCursor();
-            ?>
+                    <?php
+                    if ($_GET['id'] == $data['id']) {
+                    ?>
+                        <div class="chapter">
+                            <h2>
+                                <?= htmlspecialchars($data['title']) ?>
+                            </h2>
+                            <br />
+                            <p>
+                                <?= nl2br(htmlspecialchars($data['chapter'])) ?>
+                            </p>
+                            <br />
+                        </div>
+                    <?php
+                    } 
+                }
+                $chapters->closeCursor();
+                ?>
             <div class="comments">
                 <h2>Commentaires</h2>
                 <form action="index.php?action=addComment&id= <?= $chapter['id'] ?> " method="post">
-                    <div>
+                    <div class="label-author">
                         <label for="author">Auteur : </label>
                         <input type="text" name="author" id="author">
                     </div>
@@ -44,7 +39,7 @@
                     </div>
                     <button type="submit">Envoyer</button>
                 </form>
-                
+                <hr>
                 <?php
                     while ($data_comment = $comments->fetch()) {
                     ?>

@@ -2,48 +2,45 @@
 <?php ob_start(); ?>
 
     <section id="chapters">
-        <div class="container-list-chapter">
-            <div class="btn">
-
+        <div class="btn">
             <?php
-            while ($data = $chapters->fetch()) {
-                ?>
+                while ($data = $chapters->fetch()) {
+            ?>
                 <div class="btn-chapter">
                     <a href="index.php?action=allChapters&id=<?= $data['id'] ?>">
-                        <button class="btn-chapters active" id="button"><?= htmlspecialchars($data['title']) ?></button>
+                        <button id="button"><?= htmlspecialchars($data['title']) ?></button>
                     </a>  
                 </div>
-            </div>
-                
-                <?php
+        </div>
+        
+        <?php
                 if ($_GET['id'] == $data['id']) {
-                ?>
-                <div class="chapter">
-                    <h3>
-                        <?= htmlspecialchars($data['title']) ?>
-                    </h3>
-                    <br />
-                    <p>
-                        <?= nl2br(htmlspecialchars($data['chapter'])) ?>
-                    </p>
-                    <br />
-                </div>
-            <?php
+        ?>
+                    <div class="chapter">
+                        <h2>
+                            <?= htmlspecialchars($data['title']) ?>
+                        </h2>
+                        <br />
+                        <p>
+                            <?= nl2br(htmlspecialchars($data['chapter'])) ?>
+                        </p>
+                        <br />
+                    </div>
+        <?php
                 } 
             }
             $chapters->closeCursor();
             ?>
-            </div>
             <div class="comments">
-                <h3>Commentaires</h3>
+                <h2>Commentaires</h2>
                 <form action="index.php?action=addComment&id= <?= $chapter['id'] ?> " method="post">
                     <div>
-                        <label for="author">Auteur</label>
+                        <label for="author">Auteur : </label>
                         <input type="text" name="author" id="author">
                     </div>
                     <div>
-                        <label for="comment">Commentaire</label>
-                        <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+                        <label for="comment">Commentaire : </label>
+                        <textarea name="comment" id="comment" cols="100" rows="10"></textarea>
                     </div>
                     <button type="submit">Envoyer</button>
                 </form>
@@ -63,7 +60,6 @@
                     $comments->closeCursor();
                     ?>
             </div>
-        
     </section>
 
 <?php $section = ob_get_clean(); ?>

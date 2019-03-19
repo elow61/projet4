@@ -15,8 +15,10 @@ function resumeChapter() {
 // Chapitres contenus sur la page Chapitre
 function allChapters() {
     $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();
+    $commentManager = new \Elodie\Projet4\Model\CommentManager();
 
     $chapters = $chapterManager->totalChapters();
+    $comments = $commentManager->getComments($_GET['id']);
 
     require('view/frontend/viewChapters.php');
 }

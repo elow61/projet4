@@ -60,6 +60,7 @@
                     </div>
                     <?php
                     }
+                    $comments->closeCursor();
                     ?>
             </div>
         

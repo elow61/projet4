@@ -24,7 +24,6 @@
     // echo '</pre>';
     // On affiche les 3 derniers chapitres
     foreach ($chapters as $data) {
-        
         ?>
         <div class="chapter-resume">
             <h3>
@@ -35,13 +34,12 @@
                 <?= nl2br(htmlspecialchars(substr($data['chapter'], 0, 200))) ?>
             </p>
             <br />
-            <form action="index.php?action=chapter&id= <?= $data['id'] ?>" method="POST">
+            <form action="index.php?action=allChapters&id= <?= $data['id'] ?>" method="POST">
                 <button type="submit">Lire la suite</button>
             </form>
         </div>
     <?php
     }
-    // $chapters->closeCursor();
     ?>
     </div>
     </section>

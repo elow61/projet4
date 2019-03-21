@@ -116,6 +116,64 @@ h1 {
     margin-left: 50px;
 }
 
+/* Media Queries */
+@media screen and (max-width: 840px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+    
+    header ul {
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 752px) {
+    #btn-nav {
+        display: block;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        z-index: 30;
+        cursor: pointer;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    #menu.open {
+        display: inline-block;
+    }
+
+    #menu.open ul li:last-child {
+        margin-left: 15px;
+    }
+
+    #btn-nav .barre {
+        width: 30px;
+        height: 3px;
+        background-color: #33586e;
+        margin-top: 4px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 1.7em;
+    }
+
+    #menu.open ul  {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #menu.open ul li {
+        margin-bottom: 8px;
+    }
+}
+
 /* ----------------------- DIAPORAMA -------------------------------- */
 #slideshow {
     position: relative;
@@ -180,7 +238,66 @@ h1 {
     margin-bottom: 10px;
 }
 
+/* Media Queries */
+@media screen and (min-width: 2000px) {
+    .title {
+        top: -750px;
+    }
+}
+@media screen and (min-width:1600px) {
+    .title {
+        left: 50px;
+    }
+}
 
+@media screen and (min-width: 1400px) and (max-width: 1600px) {
+    .title {
+        left: 25px;
+        top: -450px;
+    }
+
+    .title h2 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1400px) {
+    .title {
+        left: 20px;
+        top: -400px;
+    }
+
+    .title h2 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1250px) {
+    .title {
+        left: 20px;
+        top: -350px;
+    }
+
+    .title h2 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .title {
+        left: 0;
+        top: 10px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+}
+
+@media screen and (max-width: 380px) {
+    .title {
+        top: 90px;
+    }
+}
 
 /* -------------------- CHAPTERS ----------------------------------- */
 #chapitres {

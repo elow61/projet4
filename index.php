@@ -1,14 +1,15 @@
 <?php 
-include_once('config.php');
+require_once('config.php');
+
+
+// $request = $_SERVER['REQUEST_URI'];
+// require(MODEL.'Routeur.php');
+
+// $routeur = new \Elodie\Projet4\Model\Routeur($request);
+// $routeur->renderController();
+
+
 require(CONTROLLER.'controller.php');
-
-$request = $_GET['r'];
-
-if ($request == 'home') {
-    require_once(CONTROLLER.'home.php');
-} else {
-    echo '404';
-}
 
 try {
     if (isset($_GET['action'])) {

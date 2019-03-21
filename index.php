@@ -1,6 +1,14 @@
 <?php 
+include_once('config.php');
+require(CONTROLLER.'controller.php');
 
-require('controller/controller.php');
+$request = $_GET['r'];
+
+if ($request == 'home') {
+    require_once(CONTROLLER.'home.php');
+} else {
+    echo '404';
+}
 
 try {
     if (isset($_GET['action'])) {
@@ -22,8 +30,8 @@ try {
             }
         } elseif ($_GET['action'] == 'connected') {
             connected();
-        } elseif ($_GET['action'] == 'contact') {
-            contact();
+        // } elseif ($_GET['action'] == 'contact') {
+        //     contact();
         } elseif ($_GET['action'] == 'accessAdmin') {
             accessAdmin();
         }

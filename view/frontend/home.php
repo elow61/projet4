@@ -4,9 +4,9 @@
     <section id="slideshow">
         <div class="container-slider">
             <div id="slider">
-                <div class="img-slide"><img src="public/images/slider/alaska7.jpg" alt="image slider (1)"></div>
-                <div class="img-slide"><img src="public/images/slider/alaska16.jpg" alt="image slider (2)"></div>
-                <div class="img-slide"><img src="public/images/slider/alaska18.jpg" alt="image slider (3)"></div>
+                <div class="img-slide"><img src="<?= IMAGE ?>slider/alaska7.jpg" alt="image slider (1)"></div>
+                <div class="img-slide"><img src="<?= IMAGE ?>slider/alaska16.jpg" alt="image slider (2)"></div>
+                <div class="img-slide"><img src="<?= IMAGE ?>slider/alaska18.jpg" alt="image slider (3)"></div>
             </div>
         </div>
         <div class="title">

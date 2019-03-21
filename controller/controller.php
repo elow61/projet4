@@ -9,7 +9,7 @@ function resumeChapter() {
     $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();
     $chapters = $chapterManager->getChapters();
 
-    require('view/frontend/viewHome.php');
+    require(VIEW.'frontend/home.php');
 }
 
 // Chapitres contenus sur la page Chapitre
@@ -20,7 +20,7 @@ function allChapters() {
     $chapters = $chapterManager->totalChapters();
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/frontend/viewChapters.php');
+    require(VIEW.'frontend/chapters.php');
 }
 
 // Récupération de l'ID des chapitres
@@ -47,14 +47,14 @@ function addComment($chapterId, $author, $comment) {
 
 // Gestion des pages
 function connected() {
-    require('view/frontend/viewConnexion.php');
+    require(VIEW.'frontend/connexion.php');
 }
 
-function contact() {
-    require('view/frontend/viewContact.php');
-}
+// function contact() {
+//     require('view/frontend/viewContact.php');
+// }
 
 function accessAdmin() {
-    require('view/admin/viewHomeAdmin.php');
+    require(VIEW.'admin/profil.php');
 }
 

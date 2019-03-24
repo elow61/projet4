@@ -21,7 +21,7 @@ class ChaptersManager extends Manager {
         $req = $db->query('SELECT id, title, chapter, DATE_FORMAT(date_chapter, "%d/%m/%Y")
         AS date_sent FROM chapters ORDER BY date_sent');
 
-        return $req;
+        return $req->fetchAll();
     }
 
     // Récupération d'un post précis selon son ID

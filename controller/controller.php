@@ -17,20 +17,19 @@ function allChapters() {
     $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();
     $commentManager = new \Elodie\Projet4\Model\CommentManager();
 
+    $chapter_single = $chapterManager->getChapter($_GET['id']);
+
     $chapters = $chapterManager->totalChapters();
     $comments = $commentManager->getComments($_GET['id']);
 
-    require(VIEW.'frontend/chapters.php');
+    // vérifie que l'ID du chapitre existe bien
+    if (!empty($chapter_single)) {
+        require(VIEW.'frontend/chapters.php');
+    } else {
+        header('Location: index.php');
+    }
+
 }
-
-// Récupération de l'ID des chapitres
-// function getIdChapter() {
-//     $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();
-
-//     $chapter = $chapterManager->getChapter($_GET['id']);
-
-//     require('view/frontend/viewChapters.php');
-// }
 
 // Récupération des commentaires
 function addComment($chapterId, $author, $comment) {

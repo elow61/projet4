@@ -10,6 +10,7 @@ require_once('config.php');
 
 
 require(CONTROLLER.'controller.php');
+require(CONTROLLER.'controllerAdmin.php');
 
 try {
     if (isset($_GET['action'])) {
@@ -33,12 +34,16 @@ try {
             connected();
         // } elseif ($_GET['action'] == 'contact') {
         //     contact();
-        } elseif ($_GET['action'] == 'accessAdmin') {
-            accessAdmin();
+        } elseif ($_GET['action'] == 'admin') {
+            admin();
+        } elseif ($_GET['action'] == 'addChapter') {
+            addChapter();
         }
     } else {
         resumeChapter();
     }
+
+    
     
 } catch (Exception $e) {
     echo 'Erreur :' .$e->getMessage();

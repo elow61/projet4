@@ -375,7 +375,7 @@ h1 {
     font-family: 'Kalam', cursive;
 }
 
-.comments {
+.add-comments {
     float: right;
     background-image: url('/public/images/bg/old_wall.png');
     border: 1px solid #8cb2c9;
@@ -383,26 +383,31 @@ h1 {
     padding: 6px;
     width: 80%;
     height: auto;
+    margin-bottom: 20px;
 }
 
-.comments h2 {
+.add-comments h2, .comments h2 {
     color: #33586e;
     text-transform: uppercase;
     font-weight: bold;
     font-family: 'Kalam', cursive;
 }
 
-.comments form {
-    display: flex;
-    flex-direction: column;
-}
-
-.comments form div {
+.add-comments form div {
     margin-bottom: 10px;
 }
 
-.comments form .label-author input {
+.add-comments form .label-author input {
     margin-left: 50.91px;
+}
+
+.comments {
+    background-image: url('/public/images/bg/old_wall.png');
+    border: 1px solid #8cb2c9;
+    border-radius: 4px;
+    padding: 6px;
+    width: 80%;
+    height: auto;
 }
 
 /* -------------------- PAGE CONNEXION ---------------------------- */

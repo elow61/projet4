@@ -3,7 +3,7 @@
 
 <section id="form-connect">
     <h2>Se connecter</h2>
-    <form action="index.php?action=accessAdmin" method="post">
+    <form action="index.php?action=admin" method="post">
         <p>
             <label for="pseudo">Pseudo : </label>
             <input type="text" name="pseudo" id="pseudo">

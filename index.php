@@ -36,8 +36,10 @@ try {
         //     contact();
         } elseif ($_GET['action'] == 'admin') {
             admin();
-        } elseif ($_GET['action'] == 'addChapter') {
-            addChapter();
+        } elseif ($_GET['action'] == 'comment') {
+            comment();
+        } elseif ($_GET['action'] == 'pageChapter') {
+            pageChapter();
         }
     } else {
         resumeChapter();

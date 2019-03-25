@@ -6,6 +6,17 @@ require_once('model/Manager.php');
 
 class CommentManager extends Manager {
 
+    // Réupération de tous les commentaires
+    public function allComments() {
+        $db = $this->dbConnect();
+
+        $comments = $db->query('SELECT chapter_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %Hh%imin%ss")
+        AS date_create FROM blog_comment ORDER BY comment_date DESC')
+        or die(print_r($db->errorInfo()));
+
+        return $comments->fetchAll();
+    }
+
     // Récupération des commentaires associé à un ID de chapitre
     public function getComments($chapterId) {
         $db = $this->dbConnect();

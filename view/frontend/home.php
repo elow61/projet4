@@ -31,7 +31,7 @@
             </h3>
             <br />
             <p>
-                <?= nl2br(htmlspecialchars(substr($data['chapter'], 0, 200))) ?>
+                <?= nl2br(htmlspecialchars(substr($data['chapter'], 0, 200))).'...' ?>
             </p>
             <br />
             <form action="index.php?action=allChapters&id= <?= $data['id'] ?>" method="POST">

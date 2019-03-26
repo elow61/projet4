@@ -39,6 +39,14 @@ class CommentManager extends Manager {
         $affectedLines = $comments->execute(array($chapterId, $author, $comment));
 
         return $affectedLines;
+    }
 
+    // Récupération du nombre de commentaires en base
+    public function numberComment() {
+        $db = $this->dbConnect();
+
+        $number = $db->query('SELECT COUNT(*) AS nb FROM blog_comment') or die(print_r($db->errorInfo()));
+
+        return $number->fetch();
     }
 }

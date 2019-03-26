@@ -1,5 +1,6 @@
 <?php $title = 'Bonjour Jean !'; ?>
 <?php ob_start(); ?>
+
         <!-- Container -->
     <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
         <!-- Dashbord -->
@@ -14,8 +15,10 @@
                                 <i class="fas fa-book-open"></i>
                             </div>
                             <div class="text">
-                                <h2>11</h2>
-                                <span>chapitres</span>
+                                <h2>
+                                    <?= $numberChapter['nb'] ?>
+                                </h2>
+                                <span>chapitre<?php if ($numberChapter['nb'] > 1): ?>s <?php endif;?></span>
                             </div>
                         </div>
                     </div>
@@ -27,8 +30,10 @@
                                 <i class="fas fa-comment-dots"></i>
                             </div>
                             <div class="text">
-                                <h2>11</h2>
-                                <span>commentaires</span>
+                                <h2>
+                                    <?= $numberComment['nb'] ?>
+                                </h2>
+                                <span>commentaire<?php if ($numberComment['nb'] > 1): ?>s <?php endif;?> </span>
                             </div>
                         </div>
                     </div>

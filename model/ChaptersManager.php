@@ -34,4 +34,13 @@ class ChaptersManager extends Manager {
         
         return $chapter;
     }
+
+    // Récupération du nombre de chapitres en base
+    public function numberChapter() {
+        $db = $this->dbConnect();
+
+        $number = $db->query('SELECT COUNT(*) AS nb FROM chapters') or die(print_r($db->errorInfo()));
+
+        return $number->fetch();
+    }
 }

@@ -1,30 +1,35 @@
 <?php
 
-namespace Elodie\Projet4\Model;
+// namespace Elodie\Projet4\Routeur;
 
-/** Créer les routes et trouver le controller **/
-class Routeur {
+// require(CONTROLLER.'Controll.php');
 
-    private $request;
+// /** Créer les routes et trouver le controller **/
+// class Routeur {
 
-    private $routes = [ "index.php" => "controller", 
-                        "chapters.php" => "controller", 
-                        "connexion.php" => "controller"
-                        ];
+//     private $request;
 
-    public function __construct($request) {
-        $this->request = $request;
+//     private $routes = [ "index.php" => ["controller" => 'Controll', "mehod" => 'resumeChapter'], 
+//                         "chapters.php" => ["controller" => 'Controll', "method" => 'allChapters'], 
+//                         "connexion.php" => ["controller" => 'Controll', "method" => 'connected']
+//                         ];
 
-    }
-    public function renderController() {
+//     public function __construct($request) {
+//         $this->request = $request;
 
-        $request = $this->request;
+//     }
+//     public function renderController() {
 
-        if(key_exists($request, $this->routes)) {
-            $controller = $this->routes[$request];
-            require(CONTROLLER.$controller.'.php');
-        } else {
-            echo '404';
-        }
-    }
-}
+//         $request = $this->request;
+
+//         if(key_exists($request, $this->routes)) {
+//             $controller = $this->routes[$request]['controller'];
+//             $method = $this->routes[$request]['method'];
+
+//             $currentController = new $controller();
+//             $currentController->method();
+//         } else {
+//             echo '404';
+//         }
+//     }
+// }

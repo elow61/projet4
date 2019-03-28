@@ -2,7 +2,16 @@
 
 namespace Elodie\Projet4\Controller;
 
+require_once(CORPS.'Helper.php');
+
+
 class ControllerAdmin {
+    private $helper;
+
+
+    public function __construct() {
+        $this->helper = new \Elodie\Projet4\Body\Helper();
+    }
     
     public function admin() {
         $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();

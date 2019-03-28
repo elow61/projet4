@@ -12,7 +12,7 @@ define('ROOT', $root);
 define('CONTROLLER', ROOT.'/controller/');
 define('MODEL', ROOT.'/model/');
 define('VIEW', ROOT.'/view/');
-
+define('CORPS', ROOT.'/body/');
 define('CSS', HOST.'/public/css/');
 define('IMAGE', HOST.'/public/images/');
 define('JS', HOST.'/public/js/');

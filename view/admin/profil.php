@@ -59,7 +59,7 @@
                         <?php foreach ($chapters as $data): ?>
                         <tr>
                             <td><?= htmlspecialchars($data['title']); ?></td>
-                            <td> <?= nl2br(htmlspecialchars(substr($data['chapter'], 0, 100))).'...' ?> </td>
+                            <td> <?= nl2br(htmlspecialchars($this->helper->extract($data['chapter']))) ?> </td>
                             <td> <?= $data['date_sent'] ?> </td>
                         </tr>
                         <?php endforeach; ?>

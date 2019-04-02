@@ -41,7 +41,7 @@
             </div>
         </section>
         <!-- Chapters -->
-        <section id="chapitre">
+        <section id="last-chapters">
             <br>
             <h2>Derniers chapitres</h2>
             <hr />
@@ -103,4 +103,4 @@
     </main>
 
 <?php $main = ob_get_clean(); ?>
-<?php require('template-admin.php');
+<?php require('templateAdmin.php');

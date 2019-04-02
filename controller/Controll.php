@@ -7,6 +7,11 @@ require_once('model/ChaptersManager.php');
 require_once('model/CommentManager.php');
 
 class Controll {
+    private $helper;
+
+    public function __construct() {
+        $this->helper = new \Elodie\Projet4\Body\Helper();
+    }
     
     // chapitres contenus sur la page d'accueil
     public function resumeChapter() {

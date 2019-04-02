@@ -2,8 +2,7 @@
 
 ?>
 <?php ob_start(); ?>
-
-    <section id="chapters">
+    <nav class="list-chapter">
         <div class="btn-chap">
             <?php if (is_array($chapters)): ?>
                 <?php foreach ($chapters as $chapter): ?>
@@ -13,7 +12,8 @@
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-        <div class="chap-comment">
+    </nav>
+    <section id="chapters">
             <div class="chapter">
                 <h2>
                     <?= htmlspecialchars($chapter_single['title']) ?>
@@ -28,7 +28,7 @@
                 <h2>Ajouter un commentaire</h2>
                 <form action="index.php?action=addComment&id= <?= $chapter_single['id'] ?>" method="post">
                     <div class="label-author">
-                        <label for="author">Auteur : </label>
+                        <label for="author">Prénom : </label>
                         <input type="text" name="author" id="author">
                     </div>
                     <div>
@@ -41,23 +41,19 @@
             <div class="comments">
                 <h2>Commentaires</h2>
                     <?php
-                    while ($data_comment = $comments->fetch()) {
+                    foreach ($comments as $data_comment) {
                     ?>
-                    <div>
-                        <p><strong> <?= htmlspecialchars($data_comment['author']) ?> </strong>
-                        le <?= $data_comment['date_create'] ?> </p>
-                    </div>
-                    <div>
-                        <p> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
+                        <p class="author-comm"> <strong><?= htmlspecialchars($data_comment['author'])?></strong>
+                        le (<?= $data_comment['date_create'] ?>) </p>
                         <br />
-                    </div>
+                        <p class="text-comment"> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
+                        <br />
+                        <button type="submit">Signaler</button>
+                        <hr />
                     <?php
                     }
-                    $comments->closeCursor();
                     ?>
-            </div>      
-        </div>
-        
+            </div>              
     </section>
 
 <?php $section = ob_get_clean(); ?>

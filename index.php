@@ -60,6 +60,12 @@ try {
                     throw new Exception('Tous les champs ne sont pas remplis.');
                 }
             }
+        } elseif ($_GET['action'] == 'deleteChapter') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $controllerAdmin->deleteChapter($_GET['id']);
+            } else {
+                throw new Exception('Impossible de supprimer ce chapitre.');
+            }
         }
     } else {
         $controller->resumeChapter();

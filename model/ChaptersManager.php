@@ -65,7 +65,7 @@ class ChaptersManager extends Manager {
     }
 
     // Suppression d'un chapitre
-    public function deleteChapter($chpterId) {
+    public function deleteChapter($chapterId) {
         $db = $this->dbConnect();
         $chapter = $db->prepare('DELETE FROM chapters WHERE id = ?') or die(var_dump($db->errorInfo()));
         $deleteChapter = $chapter->execute(array($chapterId));

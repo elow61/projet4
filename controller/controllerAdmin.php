@@ -76,6 +76,7 @@ class ControllerAdmin {
             throw new Exception('Impossible de supprimer ce chapitre.');
         } else {
             echo '<script>alertButton()</script>';
+            header('Location: index.php?action=pageChapter');
         }
     }
     

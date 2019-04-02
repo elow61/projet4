@@ -26,7 +26,7 @@ class CommentManager extends Manager {
         or die(print_r($db->errorInfo()));
         $comments->execute(array($chapterId));
 
-        return $comments;
+        return $comments->fetchAll();
     }
 
     // Ajout des commentaires en base

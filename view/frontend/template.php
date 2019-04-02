@@ -34,6 +34,6 @@
         <p>Copyright © Elodie Meunier - 2019. Tous droits réservés</p>
     </footer>
 
-    <script src="<?= JS ?>menu.js"></script>
+    <script src="<?= JS ?>script.js"></script>
 </body>
 </html>

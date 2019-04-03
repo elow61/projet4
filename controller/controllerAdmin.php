@@ -2,22 +2,27 @@
 
 namespace Elodie\Projet4\Controller;
 
-require_once(CORPS.'Helper.php');
-
+require_once(CLASSES.'Helper.php');
+require_once(CLASSES.'Session.php');
 
 class ControllerAdmin {
     private $helper;
 
 
     public function __construct() {
-        $this->helper = new \Elodie\Projet4\Body\Helper();
+        $this->helper = new \Elodie\Projet4\Classes\Helper();
     }
     
     // Accès à la page profil (qui est le tableau de bord)
     public function admin() {
         $chaptersManager = new \Elodie\Projet4\Model\ChaptersManager();
         $commentManager = new \Elodie\Projet4\Model\CommentManager();
-    
+        
+        $sessionManager = new \Elodie\Projet4\Classes\Session();
+        $sess = $sessionManager->setSession('pseudo', $_POST['pseudo']);
+        $session = $sessionManager->getSession($_POST['pseudo']);
+        
+
         $chapters = $chaptersManager->getChapters();
         $comments = $commentManager->allComments();
 

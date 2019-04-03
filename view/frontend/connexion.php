@@ -6,11 +6,11 @@
     <form action="index.php?action=admin" method="post">
         <p>
             <label for="pseudo">Pseudo : </label>
-            <input type="text" name="pseudo" id="pseudo">
+            <input type="text" name="pseudo" id="pseudo" require>
         </p>
         <p>
             <label for="mdp">Mot de passe : </label>
-            <input type="password" name="mdp" id="mdp">
+            <input type="password" name="mdp" id="mdp" require>
         </p>
         <button type="submit">Se connecter</button>
     </form>

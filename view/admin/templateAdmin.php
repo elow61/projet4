@@ -1,5 +1,5 @@
 <?php
-// Gestion du message à l'arrivée de l'écrivain sur son espace
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

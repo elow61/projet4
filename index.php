@@ -35,7 +35,15 @@ try {
         // } elseif ($_GET['action'] == 'contact') {
         //     contact();
         } elseif ($_GET['action'] == 'admin') {
-            $controllerAdmin->admin();
+            if (!empty($_POST['pseudo'])) {
+                if (isset($_POST['mdp']) && $_POST['mdp'] == 'jean') {
+                    $controllerAdmin->admin();
+                } else {
+                    echo 'Mot de passe incorrect!';
+                }
+            } else {
+                header('Location: index.php?action=connected');
+            }
         } elseif ($_GET['action'] == 'pageChapter') {
             $controllerAdmin->pageChapter();
         } elseif ($_GET['action'] == 'addChapter') {

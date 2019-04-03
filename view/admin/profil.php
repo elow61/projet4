@@ -1,4 +1,4 @@
-<?php $title = 'Bonjour Jean !'; ?>
+<?php $title = 'Bonjour '. $_SESSION['pseudo'] . '!'; ?>
 <?php ob_start(); ?>
 
         <!-- Container -->

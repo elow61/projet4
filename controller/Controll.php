@@ -10,7 +10,7 @@ class Controll {
     private $helper;
 
     public function __construct() {
-        $this->helper = new \Elodie\Projet4\Body\Helper();
+        $this->helper = new \Elodie\Projet4\Classes\Helper();
     }
     
     // chapitres contenus sur la page d'accueil

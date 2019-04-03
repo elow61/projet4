@@ -1,6 +1,6 @@
 <?php
 
-namespace Elodie\Projet4\Body;
+namespace Elodie\Projet4\Classes;
 
 class Helper {
 

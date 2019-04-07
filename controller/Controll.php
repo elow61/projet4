@@ -6,7 +6,6 @@ namespace Elodie\Projet4\Controller;
 require_once(MODEL.'ChaptersManager.php');
 require_once(MODEL.'CommentManager.php');
 require_once(MODEL.'AdminManager.php');
-require_once(CLASSES.'Session.php');
 
 class Controll {
     private $helper;

@@ -1,4 +1,6 @@
-<?php $title = "Modification du "; ?>
+<?php
+$title = "Modification du "; 
+?>
 <?php ob_start(); ?>
 
 <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">

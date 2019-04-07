@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 require_once('config.php');
 // $request = $_SERVER['REQUEST_URI'];
 // require(MODEL.'Routeur.php');
@@ -16,11 +18,13 @@ try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'resumeChapter') {
             $controller->resumeChapter();
-        } elseif ($_GET['action'] == 'allChapters') {
+        } 
+        elseif ($_GET['action'] == 'allChapters') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $controller->allChapters();
             }
-        } elseif ($_GET['action'] == 'addComment') {
+        } 
+        elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     $controller->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
@@ -30,44 +34,59 @@ try {
             } else {
                 throw new Exception('Aucun identifiant de chapitre envoyé.');
             }
-        } elseif ($_GET['action'] == 'connected') {
+        } 
+        elseif ($_GET['action'] == 'connected') {
             $controller->connected();
         // } elseif ($_GET['action'] == 'contact') {
         //     contact();
-        } elseif ($_GET['action'] == 'admin') {
-            if (!empty($_POST['pseudo'])) {
-                if (!empty($_POST['mdp'])) {
-                    $controllerAdmin->admin();
-                } else {
-                    echo 'Mot de passe incorrect!';
-                }
-            } 
-            else {
+        } 
+        elseif ($_GET['action'] == 'auth') {
+            $controllerAdmin->auth($_POST['pseudo']);
+        } 
+        elseif ($_GET['action'] == 'admin') {
+            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+                $controllerAdmin->admin();
+            } else {
+                throw new Exception('Vous n\'êtes pas connectés.');
                 header('Location: index.php?action=connected');
-            } 
-        } elseif ($_GET['action'] == 'sessionFinish') {
+            }
+        } 
+        elseif ($_GET['action'] == 'sessionFinish') {
             $controllerAdmin->sessionFinish();
-        } elseif ($_GET['action'] == 'pageChapter') {
+        } 
+        elseif ($_GET['action'] == 'pageChapter') {
             if (isset($_SESSION) && $_SESSION['id'] > 0) {
                 $controllerAdmin->pageChapter();
             } else {
-                echo 'aucune session';
+                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
             }
-        } elseif ($_GET['action'] == 'addChapter') {
-            if (!empty($_POST['newTitle']) && !empty($_POST['newChapter'])) {
-                $controllerAdmin->addChapter($_POST['newTitle'], $_POST['newChapter']);
+        } 
+        elseif ($_GET['action'] == 'addChapter') {
+            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+                if (!empty($_POST['newTitle']) && !empty($_POST['newChapter'])) {
+                    $controllerAdmin->addChapter($_POST['newTitle'], $_POST['newChapter']);
+                } else {
+                    throw new Exception('Tous les champs ne sont pas remplis');
+                }
             } else {
-                throw new Exception('Tous les champs ne sont pas remplis');
+                throw new Exception('Vous n\'êtes pas autorisés à ajouter un chapitre.');
             }
-        } elseif ($_GET['action'] == 'comment') {
-            $controllerAdmin->comment();
-        } elseif ($_GET['action'] == 'viewChangeChapter') {
+        } 
+        elseif ($_GET['action'] == 'comment') {
+            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+                $controllerAdmin->comment();
+            } else {
+                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
+            }
+        } 
+        elseif ($_GET['action'] == 'viewChangeChapter') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $controllerAdmin->viewChangeChapter($_GET['id']);
             } else {
                 throw new Exception('Aucun chapitre trouvé !');
             }
-        } elseif ($_GET['action'] == 'changeChapter') {
+        } 
+        elseif ($_GET['action'] == 'changeChapter') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['editTitle']) && !empty($_POST['editChapter'])) {
                     $controllerAdmin->changeChapter($_POST['editTitle'], $_POST['editChapter'], $_GET['id']);
@@ -75,7 +94,8 @@ try {
                     throw new Exception('Tous les champs ne sont pas remplis.');
                 }
             }
-        } elseif ($_GET['action'] == 'deleteChapter') {
+        } 
+        elseif ($_GET['action'] == 'deleteChapter') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $controllerAdmin->deleteChapter($_GET['id']);
             } else {

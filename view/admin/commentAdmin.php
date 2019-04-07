@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
 $title = $_SESSION['pseudo'] . ", Espace commentaires"; 
 ob_start(); 
 ?>

@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php $title = $_SESSION['pseudo'] . ", Espace chapitres"; ?>
 <?php ob_start(); ?>
 

@@ -4,23 +4,29 @@
 <?php ob_start(); ?>
     <nav class="list-chapter">
         <div class="btn-chap">
+            <ul class="nav">
             <?php if (is_array($chapters)): ?>
-                <?php foreach ($chapters as $chapter): ?>
+            <?php foreach ($chapters as $chapter): ?>
+                <li>   
                     <a href="index.php?action=allChapters&id=<?= $chapter['id'] ?>">
-                        <button id="button"><?= htmlspecialchars($chapter['title']) ?></button>
-                    </a>  
-                <?php endforeach; ?>
-            <?php endif; ?>
+                        <button id="button"><?= htmlspecialchars($chapter['title']) ?></button>                        
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+            </ul>
         </div>
-    </nav>
+        
+</nav>
     <section id="chapters">
             <div class="chapter">
                 <h2>
-                    <?= htmlspecialchars($chapter_single['title']) ?>
+                    <?= htmlspecialchars_decode($chapter_single['title']) ?>
                 </h2>
                 <br />
                 <p>
-                    <?= nl2br(htmlspecialchars($chapter_single['chapter'])) ?>
+                    <?= nl2br(htmlspecialchars_decode($chapter_single['chapter'])) ?>
                 </p>
                 <br />
             </div>

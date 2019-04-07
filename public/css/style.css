@@ -91,7 +91,7 @@ header {
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 99;
+    z-index: 200;
     color: #33586e;
     background-color: #fff;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
@@ -345,19 +345,23 @@ h1 {
     width: 200px;
     background-color: #fff;
     padding-top: 80px;
-    overflow: hidden;
+    z-index: 1;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+
 }
 
-.btn-chap {
+.nav {
     display: flex;
     flex-direction: column;
-    float: left;
-    padding: 0 50px 0px 50px;
+    align-items: center;
 }
 
-.btn-chap a {
+
+.list-chapter a {
+    display: block;
     margin-top: 10px;
+    position: relative;
+    z-index: 120;
 }
 
 #chapters {
@@ -432,7 +436,6 @@ h1 {
     align-items: center;
     height: auto;
     position: relative;
-    /* border: 1px solid #6b8ac4; */
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     padding: 50px;
@@ -466,6 +469,7 @@ footer {
     position: relative;
     top: 0;
     bottom: 0;
+    z-index: 2;
 }
 
 footer p {

@@ -56,8 +56,6 @@ class Controll {
 
     // Gestion de la page Connexion
     public function connected() {
-        $session = new \Elodie\Projet4\Classes\Session();
-
         require(VIEW.'frontend/connexion.php');
     }
 }

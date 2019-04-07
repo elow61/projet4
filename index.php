@@ -37,7 +37,7 @@ try {
         } elseif ($_GET['action'] == 'admin') {
             if (!empty($_POST['pseudo'])) {
                 if (!empty($_POST['mdp'])) {
-                    $controllerAdmin->admin($_POST['pseudo']);
+                    $controllerAdmin->admin();
                 } else {
                     echo 'Mot de passe incorrect!';
                 }
@@ -48,7 +48,11 @@ try {
         } elseif ($_GET['action'] == 'sessionFinish') {
             $controllerAdmin->sessionFinish();
         } elseif ($_GET['action'] == 'pageChapter') {
-            $controllerAdmin->pageChapter();
+            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+                $controllerAdmin->pageChapter();
+            } else {
+                echo 'aucune session';
+            }
         } elseif ($_GET['action'] == 'addChapter') {
             if (!empty($_POST['newTitle']) && !empty($_POST['newChapter'])) {
                 $controllerAdmin->addChapter($_POST['newTitle'], $_POST['newChapter']);

@@ -3,8 +3,10 @@
 namespace Elodie\Projet4\Controller;
 
 // Chargement des classes
-require_once('model/ChaptersManager.php');
-require_once('model/CommentManager.php');
+require_once(MODEL.'ChaptersManager.php');
+require_once(MODEL.'CommentManager.php');
+require_once(MODEL.'AdminManager.php');
+require_once(CLASSES.'Session.php');
 
 class Controll {
     private $helper;
@@ -54,6 +56,8 @@ class Controll {
 
     // Gestion de la page Connexion
     public function connected() {
+        $session = new \Elodie\Projet4\Classes\Session();
+
         require(VIEW.'frontend/connexion.php');
     }
 }

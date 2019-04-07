@@ -8,40 +8,73 @@ require_once(CLASSES.'Session.php');
 class ControllerAdmin {
     private $helper;
 
-
     public function __construct() {
         $this->helper = new \Elodie\Projet4\Classes\Helper();
+
     }
-    
-    // Accès à la page profil (qui est le tableau de bord)
-    public function admin() {
+    // Accès à la page profil si l'utilisateur est connecté (qui est le tableau de bord)
+    public function admin($pseudo) {
         $chaptersManager = new \Elodie\Projet4\Model\ChaptersManager();
-        $commentManager = new \Elodie\Projet4\Model\CommentManager();
-        
-        $sessionManager = new \Elodie\Projet4\Classes\Session();
-        $sess = $sessionManager->setSession('pseudo', $_POST['pseudo']);
-        $session = $sessionManager->getSession($_POST['pseudo']);
-        
+        $commentManager = new \Elodie\Projet4\Model\CommentManager();        
 
         $chapters = $chaptersManager->getChapters();
         $comments = $commentManager->allComments();
 
         $numberComment = $commentManager->numberComment();
         $numberChapter = $chaptersManager->numberChapter();
-        require(VIEW.'admin/profil.php');
+
+        // SESSION
+        $adminManager = new \Elodie\Projet4\Model\AdminManager();
+        $admin = $adminManager->getPseudo($_POST['pseudo']);
+        
+        $session = new \Elodie\Projet4\Classes\Session();
+        // Vérification du mot de passe saisi en le comparant à la base de donnée
+        $pass_true = password_verify($_POST['mdp'], $admin['pass']);
+        // if ($session->isConnected('id', 'pseudo')) {
+        //     require(VIEW.'admin/profil.php');
+        // } 
+        if (!$admin) {
+            $message = 'Mauvais mot de passe ou identifiant.';
+            $session->noConnected();
+        } else {
+            if ($pass_true) {
+                $session->isConnected('id', 'pseudo');
+                $_SESSION['id'] = $admin['id'];
+                $_SESSION['pseudo'] = $pseudo;
+                
+                $session->display();
+                require(VIEW.'admin/profil.php');
+            } else {
+                $session->noConnected();
+                $message = 'Mauvais identifiant ou mot de passe!';
+            }
+        }
+
+        
+    }
+
+    public function sessionFinish() {
+        $sessionManager = new \Elodie\Projet4\Classes\Session();
+        $session_finish = $sessionManager->destroy('id', 'pseudo');
+
+        if ($session_finish === false) {
+            echo 'Impossible de se déconnecter.';
+        } else {
+            header('Location: index.php?action=connected');
+        }
     }
     
     // Accès à la page des Chapitres
     public function pageChapter() {
         $chaptersManager = new \Elodie\Projet4\Model\ChaptersManager();
         $chapters = $chaptersManager->totalChapters();
+
         require(VIEW.'admin/chapterAdmin.php');
     }
 
     // Ajout de nouveaux chapitres
     public function addChapter($title, $chapter) {
         $chaptersManager = new \Elodie\Projet4\Model\ChaptersManager();
-
         $newChapter = $chaptersManager->addChapter($title, $chapter);
 
         if ($newChapter === false) {

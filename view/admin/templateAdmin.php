@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +24,7 @@ session_start();
             <input type="text" class="form-control form-control-light w-100" placeholder="Recherche" aria-label="Search">
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <a href="index.php?action=connected" class="nav-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                    <a href="index.php?action=sessionFinish" class="nav-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                 </li>
             </ul>
         </nav>
@@ -54,6 +51,7 @@ session_start();
         </div>
     </div>
     <body>
+
     <?= $main; ?>
 
     <script src="<?= JS ?>admin/script.js"></script>

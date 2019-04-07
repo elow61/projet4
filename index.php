@@ -36,14 +36,17 @@ try {
         //     contact();
         } elseif ($_GET['action'] == 'admin') {
             if (!empty($_POST['pseudo'])) {
-                if (isset($_POST['mdp']) && $_POST['mdp'] == 'jean') {
-                    $controllerAdmin->admin();
+                if (!empty($_POST['mdp'])) {
+                    $controllerAdmin->admin($_POST['pseudo']);
                 } else {
                     echo 'Mot de passe incorrect!';
                 }
-            } else {
+            } 
+            else {
                 header('Location: index.php?action=connected');
-            }
+            } 
+        } elseif ($_GET['action'] == 'sessionFinish') {
+            $controllerAdmin->sessionFinish();
         } elseif ($_GET['action'] == 'pageChapter') {
             $controllerAdmin->pageChapter();
         } elseif ($_GET['action'] == 'addChapter') {

@@ -1,4 +1,7 @@
-<?php $title = 'Bonjour '. $_SESSION['pseudo'] . '!'; ?>
+<?php
+$title = 'Bonjour '. $_SESSION['pseudo'] . '!'; 
+?>
+
 <?php ob_start(); ?>
 
         <!-- Container -->
@@ -58,8 +61,8 @@
                     <?php if (is_array($chapters)): ?>
                         <?php foreach ($chapters as $data): ?>
                         <tr>
-                            <td><?= htmlspecialchars($data['title']); ?></td>
-                            <td> <?= nl2br(htmlspecialchars($this->helper->extract($data['chapter']))) ?> </td>
+                            <td><?= htmlspecialchars_decode($data['title']); ?></td>
+                            <td> <?= nl2br(htmlspecialchars_decode($this->helper->extract($data['chapter']))) ?> </td>
                             <td> <?= $data['date_sent'] ?> </td>
                         </tr>
                         <?php endforeach; ?>

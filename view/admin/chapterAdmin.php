@@ -1,4 +1,5 @@
-<?php $title = "Espace chapitres"; ?>
+<?php session_start(); ?>
+<?php $title = $_SESSION['pseudo'] . ", Espace chapitres"; ?>
 <?php ob_start(); ?>
 
     <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
@@ -20,8 +21,8 @@
                     <?php if (is_array($chapters)): ?>
                         <?php foreach ($chapters as $data): ?>
                         <tr>
-                            <td><?= htmlspecialchars($data['title']); ?></td>
-                            <td> <?= nl2br(htmlspecialchars($this->helper->extract($data['chapter']))) ?> </td>
+                            <td><?= htmlspecialchars_decode($data['title']); ?></td>
+                            <td> <?= htmlspecialchars_decode($this->helper->extract($data['chapter'])) ?> </td>
                             <td> <?= $data['date_sent'] ?> </td>
                             <td> 
                                 <a id="link-update" href="index.php?action=viewChangeChapter&id=<?= $data['id'] ?>">
@@ -51,7 +52,8 @@
             </div>
             <h3>Chapitre</h3>
             <div class="form-group">
-                <textarea name="newChapter" cols="30" rows="10"></textarea>
+                <textarea name="newChapter" cols="30" rows="10">
+                </textarea>
             </div>
             <button class="btn btn-primary" type="submit">Ajouter</button>
         </form>

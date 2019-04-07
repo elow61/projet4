@@ -12,7 +12,7 @@ class CommentManager extends Manager {
 
         $comments = $db->query('SELECT chapter_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %Hh%imin%ss")
         AS date_create FROM blog_comment ORDER BY comment_date DESC')
-        or die(print_r($db->errorInfo()));
+        or die(var_dump($db->errorInfo()));
 
         return $comments->fetchAll();
     }
@@ -23,7 +23,7 @@ class CommentManager extends Manager {
 
         $comments = $db->prepare('SELECT chapter_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %Hh%imin%ss")
         AS date_create FROM blog_comment WHERE chapter_id = ? ORDER BY comment_date DESC')
-        or die(print_r($db->errorInfo()));
+        or die(var_dump($db->errorInfo()));
         $comments->execute(array($chapterId));
 
         return $comments->fetchAll();
@@ -34,7 +34,7 @@ class CommentManager extends Manager {
         $db = $this->dbConnect();
 
         $comments = $db->prepare('INSERT INTO blog_comment(chapter_id, author, comment, comment_date)
-        VALUES(?, ?, ?, NOW())') or die (print_r($db->errorInfo()));
+        VALUES(?, ?, ?, NOW())') or die (var_dump($db->errorInfo()));
 
         $affectedLines = $comments->execute(array($chapterId, $author, $comment));
 
@@ -45,7 +45,7 @@ class CommentManager extends Manager {
     public function numberComment() {
         $db = $this->dbConnect();
 
-        $number = $db->query('SELECT COUNT(*) AS nb FROM blog_comment') or die(print_r($db->errorInfo()));
+        $number = $db->query('SELECT COUNT(*) AS nb FROM blog_comment') or die(var_dump($db->errorInfo()));
 
         return $number->fetch();
     }

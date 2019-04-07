@@ -9,7 +9,7 @@ class ChaptersManager extends Manager {
     public function getChapters() {
         $db = $this->dbConnect();
         $req = $db->query('SELECT id, title, chapter, DATE_FORMAT(date_chapter, "%d/%m/%Y") 
-        AS date_sent FROM chapters ORDER BY date_sent DESC LIMIT 0, 3');
+        AS date_sent FROM chapters ORDER BY date_sent DESC LIMIT 0, 3') or die(var_dump($db->errorInfo()));
 
         return $req->fetchAll();
         
@@ -19,7 +19,7 @@ class ChaptersManager extends Manager {
     public function totalChapters() {
         $db = $this->dbConnect();
         $req = $db->query('SELECT id, title, chapter, DATE_FORMAT(date_chapter, "%d/%m/%Y")
-        AS date_sent FROM chapters ORDER BY date_sent');
+        AS date_sent FROM chapters ORDER BY id') or die(var_dump($db->errorInfo()));
 
         return $req->fetchAll();
     }
@@ -28,7 +28,7 @@ class ChaptersManager extends Manager {
     public function getChapter($chapterId) {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, title, chapter, DATE_FORMAT(date_chapter, "%d/%m/%Y")
-        AS date_sent FROM chapters WHERE id= ?');
+        AS date_sent FROM chapters WHERE id= ?') or die(var_dump($db->errorInfo()));
         $req->execute(array($chapterId));
         $chapter = $req->fetch();
         

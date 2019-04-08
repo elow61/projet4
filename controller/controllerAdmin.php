@@ -54,21 +54,14 @@ class ControllerAdmin {
     }
 
     public function sessionFinish() {
-        // $sessionManager = new \Elodie\Projet4\Classes\Session();
-        // $session_finish = $sessionManager->destroy();
 
-        // if ($session_finish === false) {
-        //     echo 'Impossible de se déconnecter.';
-        // } else {
-        //     header('Location: index.php?action=connected');
-        // }
         $_SESSION = array();
         setcookie(session_name(), '', time() - 42000);
         session_destroy();
         header('Location: index.php?action=connected');
     }
     
-    // Accès à la page des Chapitres
+    // Accès à la page 'gestion' des Chapitres
     public function pageChapter() {
         $chaptersManager = new \Elodie\Projet4\Model\ChaptersManager();
         $chapters = $chaptersManager->totalChapters();
@@ -124,6 +117,11 @@ class ControllerAdmin {
     
     // Accès à la page des commentaires
     public function comment() {
+        $commentManager = new \Elodie\Projet4\Model\CommentManager();
+        $comments = $commentManager->allComments();
+
         require(VIEW.'admin/commentAdmin.php');
     }
+
+    
 }

@@ -428,6 +428,15 @@ h1 {
     height: auto;
 }
 
+/* Formulaire de signalement */
+#form-hidden {
+    display: none;
+}
+
+#form-hidden.display {
+    display: block;
+
+}
 
 /* -------------------- PAGE CONNEXION ---------------------------- */
 #form-connect {

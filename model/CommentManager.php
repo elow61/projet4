@@ -2,7 +2,7 @@
 
 namespace Elodie\Projet4\Model;
 
-require_once('model/Manager.php');
+require_once(MODEL.'Manager.php');
 
 class CommentManager extends Manager {
 

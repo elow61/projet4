@@ -35,11 +35,11 @@
                 <form action="index.php?action=addComment&id= <?= $chapter_single['id'] ?>" method="post">
                     <div class="label-author">
                         <label for="author">Prénom : </label>
-                        <input type="text" name="author" id="author">
+                        <input type="text" name="author" id="author" require>
                     </div>
                     <div>
                         <label for="comment">Commentaire : </label>
-                        <textarea name="comment" id="comment" cols="100" rows="10"></textarea>
+                        <textarea name="comment" id="comment" cols="100" rows="10"require></textarea>
                     </div>
                     <button type="submit">Envoyer</button>
                 </form>
@@ -50,12 +50,26 @@
                     foreach ($comments as $data_comment) {
                     ?>
                         <p class="author-comm"> <strong><?= htmlspecialchars($data_comment['author'])?></strong>
-                        le (<?= $data_comment['date_create'] ?>) </p>
+                        (le <?= $data_comment['date_create'] ?>) </p>
                         <br />
                         <p class="text-comment"> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
-                        <br />
-                        <button type="submit">Signaler</button>
-                        <hr />
+                        <br>
+                            <button id="report-btn">Signaler</button>
+                        <br>
+                        <div id="form-hidden">
+                            <form action="index.php?action=addReportComment">
+                                <div class="label-author">
+                                    <label for="author">Prénom: </label>
+                                    <input type="text" name="author">
+                                </div>
+                                <div class="why-report">
+                                    <label for="why-report">Pourquoi signalez-vous ce commentaire ?</label>
+                                    <textarea name="explain" cols="100" rows="10" require></textarea>
+                                </div>
+                                <button type="submit">Signaler</button>
+                            </form>
+                        </div>
+                        <hr>
                     <?php
                     }
                     ?>

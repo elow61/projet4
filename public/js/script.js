@@ -12,3 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Formulaire de signalement
+document.getElementById('report-btn').addEventListener('click', () => {
+    
+    const classD = 'display';
+    const form = document.getElementById('form-hidden');
+
+    if (form.classList.contains(classD) === true) {
+        form.classList.remove(classD);
+    } else {
+        form.classList.add(classD);
+    }
+});

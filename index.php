@@ -35,6 +35,11 @@ try {
                 throw new Exception('Aucun identifiant de chapitre envoyé.');
             }
         } 
+        elseif ($_GET['action'] === 'addReportComment') {
+            
+                    $controller->addReportComment($_POST['author'], $_POST['comment']);
+                
+        }
         elseif ($_GET['action'] == 'connected') {
             $controller->connected();
         // } elseif ($_GET['action'] == 'contact') {

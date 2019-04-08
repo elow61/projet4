@@ -5,6 +5,7 @@ namespace Elodie\Projet4\Controller;
 // Chargement des classes
 require_once(MODEL.'ChaptersManager.php');
 require_once(MODEL.'CommentManager.php');
+require_once(MODEL.'ReportCommentManager.php');
 require_once(MODEL.'AdminManager.php');
 
 class Controll {
@@ -40,7 +41,7 @@ class Controll {
         }
     }
 
-    // Récupération des commentaires pour les ajouter en base
+    // Ajout de commentaires
     public function addComment($chapterId, $author, $comment) {
         $commentManager = new \Elodie\Projet4\Model\CommentManager();
 
@@ -56,5 +57,18 @@ class Controll {
     // Gestion de la page Connexion
     public function connected() {
         require(VIEW.'frontend/connexion.php');
+    }
+
+    // Signalement de commentaires
+    public function addReportComment($first_name, $reporting_comment) {
+        $reportManager = new \Elodie\Projet4\Model\ReportCommentManager();
+
+        $report = $reportManager->insert_report_comment($first_name, $reporting_comment);
+
+        if ($report === false) {
+            throw new Exception('Impossible de signaler ce commentaire.');
+        } else {
+            header('Location: index.php?action=allChapters&id='. $chapterId);
+        }
     }
 }

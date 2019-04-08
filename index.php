@@ -80,26 +80,39 @@ try {
             }
         } 
         elseif ($_GET['action'] == 'viewChangeChapter') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $controllerAdmin->viewChangeChapter($_GET['id']);
+            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $controllerAdmin->viewChangeChapter($_GET['id']);
+                } else {
+                    throw new Exception('Aucun chapitre trouvé !');
+                }
             } else {
-                throw new Exception('Aucun chapitre trouvé !');
+                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
             }
+            
         } 
         elseif ($_GET['action'] == 'changeChapter') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['editTitle']) && !empty($_POST['editChapter'])) {
-                    $controllerAdmin->changeChapter($_POST['editTitle'], $_POST['editChapter'], $_GET['id']);
-                } else {
-                    throw new Exception('Tous les champs ne sont pas remplis.');
+            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    if (!empty($_POST['editTitle']) && !empty($_POST['editChapter'])) {
+                        $controllerAdmin->changeChapter($_POST['editTitle'], $_POST['editChapter'], $_GET['id']);
+                    } else {
+                        throw new Exception('Tous les champs ne sont pas remplis.');
+                    }
                 }
+            } else {
+                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
             }
         } 
         elseif ($_GET['action'] == 'deleteChapter') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $controllerAdmin->deleteChapter($_GET['id']);
+            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $controllerAdmin->deleteChapter($_GET['id']);
+                } else {
+                    throw new Exception('Impossible de supprimer ce chapitre.');
+                }
             } else {
-                throw new Exception('Impossible de supprimer ce chapitre.');
+                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
             }
         }
     } else {

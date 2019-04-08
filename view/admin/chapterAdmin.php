@@ -21,7 +21,7 @@
                         <?php foreach ($chapters as $data): ?>
                         <tr>
                             <td><?= htmlspecialchars_decode($data['title']); ?></td>
-                            <td> <?= htmlspecialchars_decode($this->helper->extract($data['chapter'])) ?> </td>
+                            <td> <?= nl2br(htmlspecialchars_decode($this->helper->extract($data['chapter']))) ?> </td>
                             <td> <?= $data['date_sent'] ?> </td>
                             <td> 
                                 <a id="link-update" href="index.php?action=viewChangeChapter&id=<?= $data['id'] ?>">

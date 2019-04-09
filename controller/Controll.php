@@ -27,11 +27,12 @@ class Controll {
     public function allChapters() {
         $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();
         $commentManager = new \Elodie\Projet4\Model\CommentManager();
-
+        $reportingManager = new \Elodie\Projet4\Model\ReportManager();
         $chapter_single = $chapterManager->getChapter($_GET['id']);
 
         $chapters = $chapterManager->totalChapters();
         $comments = $commentManager->getComments($_GET['id']);
+        $reports = $reportingManager->getIdReport();
 
         // vérifie que l'ID du chapitre existe bien
         if (!empty($chapter_single)) {
@@ -60,17 +61,15 @@ class Controll {
     }
 
     // Signalement de commentaires
-    public function addReport($comment) {
+    public function addReport($chapterId, $commentId) {
         $reportManager = new \Elodie\Projet4\Model\ReportManager();
-        $commentManager = new \Elodie\Projet4\Model\CommentManager();
 
-        $report = $reportManager->insert_report_comment($comment);
-        $comments = $commentManager->getComments($_GET['id']);
+        $report = $reportManager->insert_report($commentId);
 
         if ($report === false) {
             throw new Exception('Impossible de signaler ce commentaire.');
         } else {
-            header('Location: index.php?action=allChapters&id='. $chapterId);
+            header('Location: index.php?action=allChapters&id='. $chapterId . '&report=success');
         }
     }
 }

@@ -35,9 +35,9 @@ try {
                 throw new Exception('Aucun identifiant de chapitre envoyé.');
             }
         } 
-        elseif ($_GET['action'] === 'addReport') {
+        elseif ($_GET['action'] === 'report') {
             
-                    $controller->addReport($_GET['report']);
+                    $controller->addReport($_GET['id'], $_GET['commentId']);
                 
         }
         elseif ($_GET['action'] == 'connected') {

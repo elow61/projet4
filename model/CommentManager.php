@@ -21,7 +21,7 @@ class CommentManager extends Manager {
     public function getComments($chapterId) {
         $db = $this->dbConnect();
 
-        $comments = $db->prepare('SELECT chapter_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %Hh%imin%ss")
+        $comments = $db->prepare('SELECT id, chapter_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %Hh%imin%ss")
         AS date_create FROM blog_comment WHERE chapter_id = ? ORDER BY comment_date DESC')
         or die(var_dump($db->errorInfo()));
         $comments->execute(array($chapterId));

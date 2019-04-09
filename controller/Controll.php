@@ -5,7 +5,7 @@ namespace Elodie\Projet4\Controller;
 // Chargement des classes
 require_once(MODEL.'ChaptersManager.php');
 require_once(MODEL.'CommentManager.php');
-require_once(MODEL.'ReportCommentManager.php');
+require_once(MODEL.'ReportManager.php');
 require_once(MODEL.'AdminManager.php');
 
 class Controll {
@@ -60,10 +60,12 @@ class Controll {
     }
 
     // Signalement de commentaires
-    public function addReportComment($first_name, $reporting_comment) {
-        $reportManager = new \Elodie\Projet4\Model\ReportCommentManager();
+    public function addReport($comment) {
+        $reportManager = new \Elodie\Projet4\Model\ReportManager();
+        $commentManager = new \Elodie\Projet4\Model\CommentManager();
 
-        $report = $reportManager->insert_report_comment($first_name, $reporting_comment);
+        $report = $reportManager->insert_report_comment($comment);
+        $comments = $commentManager->getComments($_GET['id']);
 
         if ($report === false) {
             throw new Exception('Impossible de signaler ce commentaire.');

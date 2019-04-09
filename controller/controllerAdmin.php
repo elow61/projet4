@@ -118,7 +118,9 @@ class ControllerAdmin {
     // Accès à la page des commentaires
     public function comment() {
         $commentManager = new \Elodie\Projet4\Model\CommentManager();
+        $reportManager = new \Elodie\Projet4\Model\ReportManager();
         $comments = $commentManager->allComments();
+        $report = $reportManager->getReport();
 
         require(VIEW.'admin/commentAdmin.php');
     }

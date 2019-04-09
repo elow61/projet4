@@ -54,10 +54,17 @@
                         <br />
                         <p class="text-comment"> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
                         <br>
+                        <a href="index.php?action=addReport&report=<?= $data_comment['comment'] ?>">
                             <button id="report-btn">Signaler</button>
+                        </a>
+                        <hr>
+                    <?php
+                    }
+                    ?>
+                    
                         <br>
-                        <div id="form-hidden">
-                            <form action="index.php?action=addReportComment">
+                        <!-- <div id="form-hidden">
+                            <form action="index.php?action=addReportComment&report=">
                                 <div class="label-author">
                                     <label for="author">Prénom: </label>
                                     <input type="text" name="author">
@@ -68,11 +75,9 @@
                                 </div>
                                 <button type="submit">Signaler</button>
                             </form>
-                        </div>
-                        <hr>
-                    <?php
-                    }
-                    ?>
+                        </div> -->
+                        
+                    
             </div>              
     </section>
 

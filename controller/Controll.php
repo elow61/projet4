@@ -34,8 +34,6 @@ class Controll {
         $comments = $commentManager->getComments($_GET['id']);
         $reports = $reportingManager->getIdReport();
 
-        
-
         // vérifie que l'ID du chapitre existe bien
         if (!empty($chapter_single)) {
             require(VIEW.'frontend/chapters.php');

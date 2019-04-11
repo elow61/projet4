@@ -56,27 +56,19 @@
             <div class="comments">
                 <h2>Commentaires</h2>
                     <?php
-                    foreach ($reports as $data_comment): ?> 
+                    foreach ($comments as $data_comment): ?> 
                         <p class="author-comm"> <strong><?= htmlspecialchars($data_comment['author'])?></strong>
                         (le <?= $data_comment['date_create'] ?>) </p>
                         <br />
                         <p class="text-comment"> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
                         <br>
                         
-                        
                         <p id="mess-report">Le commentaire a été signalé. Il sera traité par l'administration dans les meilleurs délais. Merci.</p>
-                        <?php //else :?>
-                            <button id="report-btn">Signaler</button>
-                                    <div id="form-hidden">
-                                        <div class="sure-report">
-                                            <h3>Êtes vous sûr de vouloir signaler ce commentaire ?</h3>
-                                            <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>">
-                                                <button id="yes-report">Oui</button>
-                                            </a>
-                                            <button id="no-report">Non</button>
-                                        </div>
-                                    </div>
-                        <?php //endif ?>
+
+                            <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>" onclick="confirm('Êtes vous sûr de vouloir signaler ce commentaire ?');">
+                                <button class="report-btn">Signaler</button>
+                            </a>
+
                         <hr>
                     <?php endforeach ?>
             </div>

@@ -13,21 +13,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Formulaire de signalement
-document.getElementById('report-btn').addEventListener('click', () => {
+// const button = document.querySelectorAll('button.report-btn');
+
+// for (let i = 0; i < button.length; i++) {
+//     button[i].addEventListener('click', () => {
     
-    const classD = 'display';
-    const form = document.getElementById('form-hidden');
+//         const classD = 'display';
+//         const form = document.querySelector('div.form-hidden');
+        
+        
+//         console.log(form);
 
-    if (form.classList.contains(classD) === true) {
-        form.classList.remove(classD);
-    } else {
-        form.classList.add(classD);
-    }
+//         for (let i = 0; i < form.length; i++) {
+//             form[i].classList.toggle('display');
+//         }
+//         // if (form.classList.contains(classD) === true) {
+//         //     form.classList.remove(classD);
+//         // } else {
+//         //     form.classList.add(classD);
+//         // }
+    
+//         // document.getElementsByClassName('no-report').addEventListener('click', () => {
+//         //     form.classList.remove(classD);
+//         // })
+//     });
+// }
 
-    document.getElementById('no-report').addEventListener('click', () => {
-        form.classList.remove(classD);
-    })
-});
 
 // Commentaire signalé
 document.getElementById('yes-report').addEventListener('click', () => {

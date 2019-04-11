@@ -430,7 +430,7 @@ h1 {
 
 }
 
-#report-btn {
+.report-btn {
     background-color: #6e3338;
     color: #fff;
     padding: 8px;
@@ -438,16 +438,6 @@ h1 {
     border-radius: 6px 6px 6px 6px;
     text-transform: uppercase;
     cursor: pointer;
-}
-
-/* Formulaire de signalement */
-#form-hidden {
-    display: none;
-}
-
-#form-hidden.display {
-    display: block;
-
 }
 
 #mess-report {
@@ -459,20 +449,44 @@ h1 {
 }
 
 /* -------------------- PAGE CONNEXION ---------------------------- */
+.message-connexion {
+    display: flex;
+    justify-content: center;
+}
+
+.message-connexion p {
+    width: 30%;
+    background-color: #33586e;
+    color: #fff;
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+
+
 #form-connect {
+    height: auto;
+    position: relative;
+    /* margin-top: 200px;
+    margin-bottom: 200px;
+    margin-left: 500px;
+    margin-right: 500px; */
+    color: #33586e;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.container-form-connect {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: auto;
-    position: relative;
+    width: 50%;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    padding: 50px;
-    margin-top: 200px;
-    margin-bottom: 200px;
-    margin-left: 500px;
-    margin-right: 500px;
-    color: #33586e;
+    padding: 50px 0 50px 0;
 }
 
 #form-connect h2 {
@@ -497,7 +511,7 @@ footer {
     height: 100px;
     background-color: #33586e;
     position: relative;
-    top: 0;
+    /* top: 0; */
     bottom: 0;
     z-index: 2;
 }

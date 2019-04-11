@@ -56,7 +56,7 @@ class ControllerAdmin {
     public function sessionFinish() {
 
         $_SESSION = array();
-        setcookie(session_name(), '', time() - 42000);
+        setcookie(session_name(), '', time());
         session_destroy();
         header('Location: index.php?action=connected');
     }
@@ -120,7 +120,7 @@ class ControllerAdmin {
         $commentManager = new \Elodie\Projet4\Model\CommentManager();
         $reportManager = new \Elodie\Projet4\Model\ReportManager();
         $comments = $commentManager->allComments();
-        $report = $reportManager->getReport();
+        $report = $reportManager->getIdReport();
 
         require(VIEW.'admin/commentAdmin.php');
     }

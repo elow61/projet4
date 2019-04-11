@@ -36,17 +36,37 @@
             }
 
             ?>
+            <?php
+            // if (is_array($reports)) {
+            //     foreach ($reports as $report) {
+            //         echo $report['id_comm'];
+            //     }
+            // }
+            //     print_r(array_count_values(array_column($reports, 'id_comm')));
+            //     if (array_key_exists('id_comm', $reports)) {
+            //         echo 'L\'élément existe dans le tableau';
+
+            //     } else {
+            //     echo 'Reports n\'est pas un tableau.';
+            //     echo '<pre>';
+
+            // }
+            ?>
+
             <div class="comments">
                 <h2>Commentaires</h2>
                     <?php
-                    foreach ($comments as $data_comment): ?> 
+                    foreach ($reports as $data_comment): ?> 
                         <p class="author-comm"> <strong><?= htmlspecialchars($data_comment['author'])?></strong>
                         (le <?= $data_comment['date_create'] ?>) </p>
                         <br />
                         <p class="text-comment"> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
                         <br>
+                        
+                        
+                        <p id="mess-report">Le commentaire a été signalé. Il sera traité par l'administration dans les meilleurs délais. Merci.</p>
+                        <?php //else :?>
                             <button id="report-btn">Signaler</button>
-                                    <p id="mess-report">Le commentaire a été signalé. Il sera traité par l'administration dans les meilleurs délais. Merci.</p>
                                     <div id="form-hidden">
                                         <div class="sure-report">
                                             <h3>Êtes vous sûr de vouloir signaler ce commentaire ?</h3>
@@ -56,6 +76,7 @@
                                             <button id="no-report">Non</button>
                                         </div>
                                     </div>
+                        <?php //endif ?>
                         <hr>
                     <?php endforeach ?>
             </div>

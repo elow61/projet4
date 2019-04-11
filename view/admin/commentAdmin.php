@@ -14,7 +14,7 @@ ob_start();
                         <th>Commentaire</th>
                         <th>Chapitre ciblé</th>
                         <th>Date</th>
-                        <th>Supprimer</th>
+                        <th>Lire</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,7 +27,7 @@ ob_start();
                         <td><?= $data['date_create']?></td>
                         <td>
                             <a href="index.php?action=deleteComment&id=<?= $data['id']?>" class="link-delete">
-                                <button type="button" class="btn btn-danger">Supprimer</button>
+                                <button type="button" class="btn btn-info">Voir</button>
                             </a>
                         </td>
                     </tr>
@@ -48,6 +48,7 @@ ob_start();
                         <th>Commentaire</th>
                         <th>Chapitre ciblé</th>
                         <th>Date</th>
+                        <th>Lire</th>
                         <th>Supprimer</th>
                     </tr>
                 </thead>
@@ -61,7 +62,12 @@ ob_start();
                         <td><?= $data['date_create']?></td>
                         <td>
                             <a href="index.php?action=deleteComment&id=<?= $data['id']?>" class="link-delete">
-                                <button type="button" class="btn btn-danger">Supprimer</button>
+                                <button type="button" class="btn btn-info">Voir</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="index.php?action=deleteComment&id=<?= $data['id']?>">
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
                             </a>
                         </td>
                     </tr>

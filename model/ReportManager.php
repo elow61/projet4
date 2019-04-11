@@ -9,7 +9,13 @@ class ReportManager extends CommentManager {
     public function getIdReport() {
         $db = $this->dbConnect();
 
-        $reportId = $db->query('SELECT * FROM blog_comment AS c INNER JOIN report_comment AS r ON c.id = r.id_comment');
+        $reportId = $db->query('SELECT c.id comment_id, c.chapter_id chapter_id, c.author author, c.comment comment, 
+        DATE_FORMAT(c.comment_date, "%d/%m/%Y %Hh%imin%ss") date_create, 
+        r.id_comment id_comm, DATE_FORMAT(r.date_reporting, "%d/%m/%Y %Hh%imin%ss") date_report
+        FROM blog_comment AS c 
+        INNER JOIN report_comment AS r 
+        ON c.id = r.id_comment')
+        or die(var_dump($db->errorInfo()));
         
 
         return $reportId->fetchAll();
@@ -25,14 +31,5 @@ class ReportManager extends CommentManager {
         $report->execute(array($commentId));
 
         return $report;
-    }
-
-    // Récupération de la table report
-    public function reporting() {
-        $db = $this->dbConnect();
-
-        $reporting = $db->query('SELECT id_comment FROM report_comment') or die(var_dump($db->errorInfo()));
-        return $reporting->fetchAll();
-    }
- 
+    } 
 }

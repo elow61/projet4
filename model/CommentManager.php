@@ -49,4 +49,15 @@ class CommentManager extends Manager {
 
         return $number->fetch();
     }
+
+    // Signaler un commentaire
+    public function reportComment($commentId) {
+        $db = $this->dbConnect();
+
+        $report = $db->prepare('UPDATE blog_comment SET report = 1 WHERE id = ?')
+        or die(var_dump($db->errorInfo()));
+        $report->execute(array($commentId));
+
+        return $report;
+    }
 }

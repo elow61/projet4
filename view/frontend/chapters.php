@@ -36,22 +36,7 @@
             }
 
             ?>
-            <?php
-            // if (is_array($reports)) {
-            //     foreach ($reports as $report) {
-            //         echo $report['id_comm'];
-            //     }
-            // }
-            //     print_r(array_count_values(array_column($reports, 'id_comm')));
-            //     if (array_key_exists('id_comm', $reports)) {
-            //         echo 'L\'élément existe dans le tableau';
 
-            //     } else {
-            //     echo 'Reports n\'est pas un tableau.';
-            //     echo '<pre>';
-
-            // }
-            ?>
 
             <div class="comments">
                 <h2>Commentaires</h2>
@@ -62,13 +47,15 @@
                         <br />
                         <p class="text-comment"> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
                         <br>
-                        
-                        <p id="mess-report">Le commentaire a été signalé. Il sera traité par l'administration dans les meilleurs délais. Merci.</p>
-
-                            <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>" onclick="confirm('Êtes vous sûr de vouloir signaler ce commentaire ?');">
-                                <button class="report-btn">Signaler</button>
-                            </a>
-
+                        <?php if ($data_comment['report'] === true): ?>
+                        <!-- Message de signalement -->                      
+                        <p class="mess-report">Le commentaire a été signalé. Il sera traité par l'administration dans les meilleurs délais. Merci.</p>
+                        <?php else :?>
+                        <!-- Bouton pour signaler -->
+                        <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>" onclick="confirm('Êtes vous sûr de vouloir signaler ce commentaire ?');">
+                            <button class="report-btn">Signaler</button>
+                        </a>
+                        <?php endif ?>
                         <hr>
                     <?php endforeach ?>
             </div>

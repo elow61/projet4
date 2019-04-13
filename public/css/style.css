@@ -444,8 +444,12 @@ h1 {
     display: none;
 }
 
-#mess-report.display {
+.display {
     display: block;
+}
+
+.hidden {
+    display: none;
 }
 
 /* -------------------- PAGE CONNEXION ---------------------------- */

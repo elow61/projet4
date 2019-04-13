@@ -17,7 +17,6 @@ class ReportManager extends CommentManager {
         ON c.id = r.id_comment')
         or die(var_dump($db->errorInfo()));
         
-
         return $reportId->fetchAll();
     }
 
@@ -32,4 +31,17 @@ class ReportManager extends CommentManager {
 
         return $report;
     } 
+
+    // Mets à jour le compteur des commentaires signalés
+    public function nb_reports($commentId) {
+        $db = $this->dbConnect();
+
+        $report = $db->prepare('UPDATE report_comment SET nb_reports = nb_reports + 1 WHERE comment_id = ?') 
+        or die(var_dump($db->errorInfo()));
+
+        $report->execute(array($commentId));
+
+        return $report;
+
+    }
 }

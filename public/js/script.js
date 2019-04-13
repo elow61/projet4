@@ -41,15 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Commentaire signalé
-document.getElementById('yes-report').addEventListener('click', () => {
-    const button = document.getElementById('yes-report');
-    const mess = document.getElementById('mess-report');
-    const classD = 'display';
+// document.getElementById('yes-report').addEventListener('click', () => {
+//     const button = document.getElementById('yes-report');
+//     const mess = document.getElementById('mess-report');
+//     const classD = 'display';
 
-    button.style.display = 'none';
+//     button.style.display = 'none';
     
-    if (mess.classList.contains(classD) === false) {
-        mess.classList.add(classD);
-    } 
+//     if (mess.classList.contains(classD) === false) {
+//         mess.classList.add(classD);
+//     } 
 
-});
+// });

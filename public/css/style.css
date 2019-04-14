@@ -566,20 +566,13 @@ h1 {
     padding: 10px;
 }
 
-
-
 #form-connect {
     height: auto;
     position: relative;
-    /* margin-top: 200px;
-    margin-bottom: 200px;
-    margin-left: 500px;
-    margin-right: 500px; */
     color: #33586e;
     padding: 50px;
     display: flex;
     justify-content: center;
-
 }
 
 .container-form-connect {
@@ -601,6 +594,10 @@ h1 {
 
 #form-connect form p{
     margin-bottom: 15px;
+}
+
+#form-connect input {
+    width: 300px;
 }
 
 #pseudo {

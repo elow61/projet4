@@ -1,7 +1,14 @@
 <?php $title = 'Chapitres - Le blog de Jean Forteroche';
 
+if (isset($_GET['report']) && $_GET['report'] == 'success') {
+    echo 'Le commentaire est bien signalé et sera traité dans les meilleurs délais. Merci.';
+}
 ?>
 <?php ob_start(); ?>
+    <div class="bg-head">
+        <p class="mess-head">Liste des chapitres.</p>
+    </div>
+
     <nav class="list-chapter">
         <div class="btn-chap">
             <ul class="nav">
@@ -14,66 +21,66 @@
                 </li>
             <?php endforeach; ?>
         <?php endif; ?>
-
             </ul>
         </div>
-        
-</nav>
-    <section id="chapters">
-        <div class="chapter">
-            <h2>
-                <?= htmlspecialchars_decode($chapter_single['title']) ?>
-            </h2>
-            <br />
-            <p>
-                <?= nl2br(htmlspecialchars_decode($chapter_single['chapter'])) ?>
-            </p>
-            <br />
-        </div>
-            <?php
-            if (isset($_GET['report']) && $_GET['report'] == 'success') {
-                echo 'Le commentaire est bien signalé et sera traité dans les meilleurs délais. Merci.';
-            }
-
-            ?>
-
-
-            <div class="comments">
+    </nav>
+    <div id="container-page">
+        <section class=chapter>
+            <div>
+                <h2>
+                    <?= htmlspecialchars_decode($chapter_single['title']) ?>
+                </h2>
+                <br />
+                <p>
+                    <?= nl2br(htmlspecialchars_decode($chapter_single['chapter'])) ?>
+                </p>
+                <br />
+            </div>
+        </section>  
+        <section class="comments">
+            <div>
                 <h2>Commentaires</h2>
-                    <?php
-                    foreach ($comments as $data_comment): ?> 
-                        <p class="author-comm"> <strong><?= htmlspecialchars($data_comment['author'])?></strong>
-                        (le <?= $data_comment['date_create'] ?>) </p>
+                <?php
+                foreach ($comments as $data_comment): ?>
+                <div class="container-comm">
+                    <div class="name">
+                        <p>De <?= htmlspecialchars($data_comment['author']) ?></p>
+                    </div>
+                    <div class="comment">
+                        <p class="date">(le <?= $data_comment['date_create'] ?>) </p>
                         <br />
                         <p class="text-comment"> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
                         <br>
-                        <?php if ($data_comment['report'] === true): ?>
-                        <!-- Message de signalement -->                      
-                        <p class="mess-report">Le commentaire a été signalé. Il sera traité par l'administration dans les meilleurs délais. Merci.</p>
-                        <?php else :?>
-                        <!-- Bouton pour signaler -->
-                        <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>" onclick="confirm('Êtes vous sûr de vouloir signaler ce commentaire ?');">
-                            <button class="report-btn">Signaler</button>
-                        </a>
-                        <?php endif ?>
-                        <hr>
-                    <?php endforeach ?>
+                    </div>
+                        
+                    <?php if ($data_comment['report'] === true): ?>
+                    <!-- Message de signalement -->                      
+                    <p class="mess-report">Le commentaire a été signalé. Il sera traité par l'administration dans les meilleurs délais. Merci.</p>
+                    <?php else :?>
+                    <!-- Bouton pour signaler -->
+                    <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>" onclick="confirm('Êtes vous sûr de vouloir signaler ce commentaire ?');">
+                        <button class="report-btn">Signaler</button>
+                    </a>
+                </div>
+                    <?php endif ?>
+                <?php endforeach ?>
             </div>
-            <div class="add-comments">
+        </section>
+        <section class="add-comments">
+            <div class="box-add-comment">
                 <h2>Ajouter un commentaire</h2>
                 <form action="index.php?action=addComment&id= <?= $chapter_single['id'] ?>" method="post">
                     <div class="label-author">
-                        <label for="author">Prénom : </label>
-                        <input type="text" name="author" id="author" require>
+                        <input type="text" name="author" id="author" placeholder="VOTRE PSEUDO" require>
                     </div>
                     <div>
-                        <label for="comment">Commentaire : </label>
-                        <textarea name="comment" id="comment" cols="100" rows="10"require></textarea>
+                        <textarea name="comment" id="comment" rows="10" placeholder="VOTRE COMMENTAIRE" require></textarea>
                     </div>
                     <button type="submit">Envoyer</button>
                 </form>
-            </div>           
-    </section>
+            </div> 
+        </section>
+    </div>
 
 <?php $section = ob_get_clean(); ?>
 <?php require('template.php'); ?>

@@ -1,5 +1,5 @@
 <?php
-$title = "Modification du "; 
+$title = "Modification du " . htmlspecialchars_decode($chapter_single['title']); 
 ?>
 <?php ob_start(); ?>
 
@@ -10,12 +10,12 @@ $title = "Modification du ";
         <form action="index.php?action=changeChapter&id=<?= $chapterId ?>" method="post">
             <h3>Titre</h3>
             <div class="form-group">
-                <input type="text" name="editTitle" value="<?= htmlspecialchars($chapter_single['title']); ?>">
+                <input type="text" name="editTitle" value="<?= htmlspecialchars_decode($chapter_single['title']); ?>">
             </div>
             <h3>Chapitre</h3>
             <div class="form-group">
                 <textarea name="editChapter" cols="30" rows="10">
-                    <?= nl2br(htmlspecialchars($chapter_single['chapter']))?>
+                    <?= nl2br(htmlspecialchars_decode($chapter_single['chapter']))?>
                 </textarea>
             </div>
             <button class="btn btn-success" type="submit">Modifier</button>

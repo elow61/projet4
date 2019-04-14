@@ -7,7 +7,7 @@ class Helper {
     // Méthode qui extrait une partie d'un texte
     public function extract($text) {
 
-        if (preg_match('/^.{1,100}\b/s', $text, $output)) {
+        if (preg_match('/^.{1,180}\b/s', $text, $output)) {
             $text = $output[0].'...';
         }
         

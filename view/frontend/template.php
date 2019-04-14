@@ -22,7 +22,6 @@
             <ul>
                 <li><a href="index.php"><i class="fas fa-igloo"></i> Accueil</li></a>
                 <li><a href="index.php?action=allChapters&id=1"><i class="fas fa-book"></i> Chapitres</li></a>
-                <li><a href="index.php?action=contact"><i class="fas fa-mobile"></i> Contact</li></a>
                 <li><a href="index.php?action=connected"><i class="fas fa-sign-in-alt"></i> Connexion</li></a>
             </ul>
         </nav>

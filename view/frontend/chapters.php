@@ -38,7 +38,7 @@ if (isset($_GET['report']) && $_GET['report'] == 'success') {
             </div>
         </section>  
         <section class="comments">
-            <div>
+            <div class="comments-box">
                 <h2>Commentaires</h2>
                 <?php
                 foreach ($comments as $data_comment): ?>
@@ -47,7 +47,7 @@ if (isset($_GET['report']) && $_GET['report'] == 'success') {
                         <p>De <?= htmlspecialchars($data_comment['author']) ?></p>
                     </div>
                     <div class="comment">
-                        <p class="date">(le <?= $data_comment['date_create'] ?>) </p>
+                        <p class="date">le <?= $data_comment['date_create'] ?></p>
                         <br />
                         <p class="text-comment"> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
                         <br>

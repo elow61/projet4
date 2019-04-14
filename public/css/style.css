@@ -145,7 +145,7 @@ h1 {
 @media screen and (max-width: 752px) {
     #btn-nav {
         display: block;
-        position: fixed;
+        position: absolute;
         right: 20px;
         top: 20px;
         z-index: 30;
@@ -441,6 +441,7 @@ h1 {
 
 /* Chapters */
 #container-page {
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -449,7 +450,7 @@ h1 {
 }
 
 .chapter {
-    background-color: #fff;
+    width: 60%;
     padding: 60px;
     height: auto;
     text-align: justify;
@@ -468,8 +469,17 @@ h1 {
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 60px 0 60px 0;
     background-color: #33586e;
+}
+
+.comments-box {
+    width: 80%;
+}
+
+.comments h2 {
+    margin-left: 50px;
 }
 
 .container-comm {
@@ -480,7 +490,7 @@ h1 {
 .name {
     display: inline-block;
     padding: 10px;
-    background-color: #33586e;
+    background-color: #2E3841;
     color: #fff;
     position: relative;
     top: 15px;
@@ -495,6 +505,8 @@ h1 {
 
 .date {
     float: right;
+    font-style: italic;
+    color: #2E3841;
 }
 
 .report-btn {
@@ -544,27 +556,36 @@ h1 {
 .add-comments form input {
     width: 500px;
     margin: 1px;
+    border: 1px solid #33586e;
 }
 
 .add-comments form textarea {
     width: 500px;
     height: 200px;
     margin: 1px;
+    border: 1px solid #33586e;
+
 }
-/* -------------------- PAGE CONNEXION ---------------------------- */
-.message-connexion {
-    display: flex;
-    justify-content: center;
+ /* Media queries */
+ @media screen and (max-width: 768px) {
+    .chapter, .comments-box {
+        width: 100%;
+        padding: 0;
+    }
+    .chapter p {
+        padding: 2px;
+    }
 }
 
-.message-connexion p {
-    width: 30%;
-    background-color: #33586e;
-    color: #fff;
-    text-align: center;
-    margin-top: 30px;
-    padding: 10px;
+@media screen and (max-width: 510px) {
+    .add-comments form input {
+        width: 200px;
+    }
+    .add-comments form textarea {
+        width: 200px;
+    }
 }
+/* -------------------- PAGE CONNEXION ---------------------------- */
 
 #form-connect {
     height: auto;
@@ -580,8 +601,6 @@ h1 {
     flex-direction: column;
     align-items: center;
     width: 50%;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
     padding: 50px 0 50px 0;
 }
 
@@ -598,10 +617,21 @@ h1 {
 
 #form-connect input {
     width: 300px;
+    border: 1px solid #33586e;
 }
 
 #pseudo {
     margin-left: 43.65px;
+}
+
+@media screen and (max-width: 375px) {
+    #form-connect input {
+        width: 200px;
+    }
+
+    .mess-head {
+        font-size: 2em;
+    }
 }
 
 /* ------------------------ FOOTER ------------------------------- */

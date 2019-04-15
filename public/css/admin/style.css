@@ -11,6 +11,22 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: rgb(94, 100, 155);
+}
+
+th {
+    color: rgb(94, 100, 155);
+}
+
+textarea {
+    height: 600px;
+}
+
+h2 {
+    color: rgb(71, 79, 146);
+}
+
 /** ----------------------------------------- **/
 /** SIDEBAR **/
 
@@ -54,6 +70,10 @@ main {
 }
 .overview-element .icon i {
     font-size: 50px;
+    color: #fff;
+}
+
+.text h2 {
     color: #fff;
 }
 

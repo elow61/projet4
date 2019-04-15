@@ -49,7 +49,7 @@ try {
             $controllerAdmin->auth($_POST['pseudo']);
         } 
         elseif ($_GET['action'] == 'admin') {
-            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+            if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
                 $controllerAdmin->admin();
             } else {
                 throw new Exception('Vous n\'êtes pas connectés.');

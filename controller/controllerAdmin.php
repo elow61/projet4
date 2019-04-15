@@ -36,10 +36,6 @@ class ControllerAdmin {
 
     // Accès à la page profil si l'utilisateur est connecté (qui est le tableau de bord)
     public function admin() {
-   
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
 
         $chaptersManager = new \Elodie\Projet4\Model\ChaptersManager();
         $commentManager = new \Elodie\Projet4\Model\CommentManager();        

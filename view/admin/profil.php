@@ -11,7 +11,7 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
             <h2>Tableau de bord</h2>
             <hr/>
             <div class="row">
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg-4">
                     <div class="overview_C1">
                         <div class="overview-element">
                             <div class="icon">
@@ -26,7 +26,7 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg-4">
                     <div class="overview_C2">
                         <div class="overview-element">
                             <div class="icon">
@@ -41,16 +41,18 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg-4">
                     <div class="overview_C3">
-                        <div class="icon">
-                            soon
-                        </div>
-                        <div class="text">
-                            <h2>
-                                <p>15</p>
-                            </h2>
-                            <span>commentaire signalés</span>
+                        <div class="overview-element">
+                            <div class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="text">
+                                <h2>
+                                    <p>15</p>
+                                </h2>
+                                <span>commentaire signalés</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +64,7 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
             <h2>Derniers chapitres</h2>
             <hr />
             <div class="tab">
-                <table class="table table-light table-hover">
+                <table class="table table-borderless table-striped table-light table-hover">
                     <thead>
                         <tr>
                             <th>Numéro</th>
@@ -88,10 +90,10 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
         <!-- Comments -->
         <section id="commentaires">
             <br />
-            <h2>Commentaires</h2>
+            <h2>Derniers commentaires</h2>
             <hr />
             <div class="tab">
-                <table class="table table-light table-hover">
+                <table class="table table-borderless table-striped table-light table-earning table-hover">
                     <thead>
                         <tr>
                             <th>Auteurs</th>
@@ -114,8 +116,16 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
                     </tbody>
                 </table>
             </div>
-            
         </section>
+        <footer>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <p>Copyright © 2019 Elodie Meunier. Tous droits réservés.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
 
 <?php $main = ob_get_clean(); ?>

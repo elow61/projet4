@@ -41,6 +41,19 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="overview_C3">
+                        <div class="icon">
+                            soon
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <p>15</p>
+                            </h2>
+                            <span>commentaire signalés</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Chapters -->

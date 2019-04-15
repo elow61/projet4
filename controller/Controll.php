@@ -2,22 +2,29 @@
 
 namespace Elodie\Projet4\Controller;
 
+use \Elodie\Projet4\Classes\Helper;
+use \Elodie\Projet4\Model\AdminManager;
+use \Elodie\Projet4\Model\ChaptersManager;
+use \Elodie\Projet4\Model\CommentManager;
+use \Elodie\Projet4\Model\ReportManager;
+
 // Chargement des classes
 require_once(MODEL.'ChaptersManager.php');
 require_once(MODEL.'CommentManager.php');
 require_once(MODEL.'ReportManager.php');
 require_once(MODEL.'AdminManager.php');
+require_once(CLASSES.'Helper.php');
 
 class Controll {
     private $helper;
 
     public function __construct() {
-        $this->helper = new \Elodie\Projet4\Classes\Helper();
+        $this->helper = new Helper();
     }
     
     // chapitres contenus sur la page d'accueil
     public function resumeChapter() {
-        $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();
+        $chapterManager = new ChaptersManager();
         $chapters = $chapterManager->getChapters();
 
         require(VIEW.'frontend/home.php');
@@ -25,9 +32,9 @@ class Controll {
 
     // Chapitres contenus sur la page Chapitre
     public function allChapters() {
-        $chapterManager = new \Elodie\Projet4\Model\ChaptersManager();
-        $commentManager = new \Elodie\Projet4\Model\CommentManager();
-        $reportingManager = new \Elodie\Projet4\Model\ReportManager();
+        $chapterManager = new ChaptersManager();
+        $commentManager = new CommentManager();
+        $reportingManager = new ReportManager();
         $chapter_single = $chapterManager->getChapter($_GET['id']);
 
         $chapters = $chapterManager->totalChapters();
@@ -42,7 +49,7 @@ class Controll {
 
     // Ajout de commentaires
     public function addComment($chapterId, $author, $comment) {
-        $commentManager = new \Elodie\Projet4\Model\CommentManager();
+        $commentManager = new CommentManager();
 
         $affectedLines = $commentManager->addToComment($chapterId, $author, $comment);
 
@@ -60,8 +67,8 @@ class Controll {
 
     // Signalement de commentaires
     public function addReport($chapterId, $commentId) {
-        $reportManager = new \Elodie\Projet4\Model\ReportManager();
-        $commentManager = new \Elodie\Projet4\Model\CommentManager();
+        $reportManager = new ReportManager();
+        $commentManager = new CommentManager();
 
         $reports = $commentManager->reportComment($commentId);
 

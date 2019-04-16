@@ -9,7 +9,7 @@ ob_start();
         <div class="box-comment">
             <?= $comment['comment'] ?>
         </div>
-        <a href="index.php?action=validComm">
+        <a href="index.php?action=validComment&id=<?= $comment['id'] ?>">
             <button class="btn btn-success">Valider</button>
         </a>
         <a href="index.php?action=deleteComm">

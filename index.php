@@ -129,6 +129,17 @@ try {
                 throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
         }
+        elseif ($_GET['action'] == 'validComment') {
+            if (isset($_SESSION)) {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $controllerAdmin->validComment($_GET['id']);
+                } else {
+                    throw new Exception('Impossible de valider le commentaire.');
+                }
+            } else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
+            }
+        }
     } else {
         $controller->resumeChapter();
     }

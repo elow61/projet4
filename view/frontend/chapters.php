@@ -55,15 +55,17 @@ if (isset($_GET['report']) && $_GET['report'] == 'success') {
                     <?php if ($data_comment['report'] === "1"): ?>
                     <!-- Message de signalement -->
                     <div class="bubble-mess">
-                        <p class="mess-report">Commentaire signalé et en cours de traitement.</p>
+                        <p class="mess-report">Commentaire signalé, en cours de traitement.</p>
                     </div>                     
                     <?php else :?>
                     <!-- Bouton pour signaler -->
-                    <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>" onclick="confirm('Êtes vous sûr de vouloir signaler ce commentaire ?');">
-                        <button class="report-btn">Signaler</button>
-                    </a>
-                </div>
+                    <div class="clik" onclick="confirm('Êtes vous sûr de vouloir signaler ce commentaire ?');">
+                        <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>">
+                            <button class="report-btn">Signaler</button>
+                        </a>
+                    </div>
                     <?php endif ?>
+                </div>
                 <?php endforeach ?>
             </div>
         </section>

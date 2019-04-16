@@ -113,7 +113,6 @@ class ControllerAdmin {
         if ($deleteChapter === false) {
             throw new Exception('Impossible de supprimer ce chapitre.');
         } else {
-            echo '<script>alertButton()</script>';
             header('Location: index.php?action=pageChapter');
         }
     }
@@ -130,11 +129,30 @@ class ControllerAdmin {
         require(VIEW.'admin/commentAdmin.php');
     }
 
+    // Accès à la page traitant d'un commentaire signalé
     public function viewComment($commentId) {
         $commentManager = new CommentManager();
 
         $comment = $commentManager->getComment($_GET['id']);
         require(VIEW.'admin/viewComment.php');
+    }
+
+    // Valide le commentaire signalé
+    public function validComment($commentId) {
+        $reportManager = new ReportManager();
+        $commentManager = new CommentManager();
+
+        // Supprime le commentaire de la table des reports
+        $reportValid = $reportManager->deleteReport($_GET['id']);
+
+        // Initialise le commentaire en tant que "non signalé"
+        $commentValid = $commentManager->validateComment($_GET['id']);
+
+        if ($reportValid === false || $commentValid === false) {
+            throw new Exception('Impossible de valider le commentaire.');
+        } else {
+            header('Location: index.php?action=comment');
+        }
     }
 
     

@@ -49,9 +49,9 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
                             </div>
                             <div class="text">
                                 <h2>
-                                    <p>15</p>
+                                    <?= $numberReport['nb'] ?>
                                 </h2>
-                                <span>commentaire signalés</span>
+                                    <span>commentaire signalé<?php if ($numberReport['nb'] > 1): ?>s<?php endif;?></span>
                             </div>
                         </div>
                     </div>

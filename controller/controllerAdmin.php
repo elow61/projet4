@@ -43,13 +43,15 @@ class ControllerAdmin {
 
         $chaptersManager = new ChaptersManager();
         $commentManager = new CommentManager();        
+        $reportManager = new ReportManager();
 
         $chapters = $chaptersManager->getChapters();
         $comments = $commentManager->lastComments();
 
+        $numberReport = $reportManager->numberReports();
         $numberComment = $commentManager->numberComment();
         $numberChapter = $chaptersManager->numberChapter();
-
+        
         require(VIEW.'admin/profil.php');
     }
 

@@ -5,6 +5,11 @@ namespace Elodie\Projet4\Model;
 require_once(MODEL.'CommentManager.php');
 
 class ReportManager extends CommentManager {
+    
+    public function __construct() {
+        $this->db = $this->dbConnect();
+    }
+    
     // Récupération des commentaires signalés associé à l'id du commentaire
     public function getIdReport() {
 
@@ -30,15 +35,11 @@ class ReportManager extends CommentManager {
         return $report;
     } 
 
-    // Mets à jour le compteur des commentaires signalés
-    public function nb_reports($commentId) {
-
-        $report = $this->db->prepare('UPDATE report_comment SET nb_reports = nb_reports + 1 WHERE comment_id = ?') 
+    // Nombre de commentaires signalés
+    public function numberReports() {
+        $number = $this->db->query('SELECT COUNT(*) AS nb FROM report_comment')
         or die(var_dump($this->db->errorInfo()));
 
-        $report->execute(array($commentId));
-
-        return $report;
-
+        return $number->fetch();
     }
 }

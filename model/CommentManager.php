@@ -6,7 +6,6 @@ require_once(MODEL.'Manager.php');
 
 class CommentManager extends Manager {
     
-    
     public function __construct() {
         $this->db = $this->dbConnect();
     }

@@ -10,6 +10,17 @@ class CommentManager extends Manager {
         $this->db = $this->dbConnect();
     }
 
+    //Récupération d'un commentaire précis selon son ID
+    public function getComment($commentId) {
+
+        $req = $this->db->prepare('SELECT id, author, comment, report, DATE_FORMAT(comment_date, "%d/%m/%Y %Hh%imin%ss")
+        AS date_create FROM blog_comment WHERE id = ?') or die(var_dump($this->db->errorInfo()));
+        $req->execute(array($commentId));
+        $comment = $req->fetch();
+        
+        return $comment;
+    }
+
     // Récupération des 3 derniers commentaires postés
     public function lastComments() {
 
@@ -19,10 +30,10 @@ class CommentManager extends Manager {
         return $comments->fetchAll();
     }
 
-    // Réupération de tous les commentaires
+    // Récupération de tous les commentaires
     public function allComments() {
 
-        $comments = $this->db->query('SELECT chapter_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %Hh%imin%ss")
+        $comments = $this->db->query('SELECT id, chapter_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %Hh%imin%ss")
         AS date_create FROM blog_comment ORDER BY comment_date DESC')
         or die(var_dump($this->db->errorInfo()));
 
@@ -67,5 +78,24 @@ class CommentManager extends Manager {
         $report->execute(array($commentId));
 
         return $report;
+    }
+
+    // Validation d'un commentaire
+    public function validateComment($commentId) {
+        $comment = $this->db->prepare('UPDATE blog_comment SET report = 0 WHERE id = ?')
+        or die(var_dump($this->db->errorInfo()));
+        $comment->execute(array($commentId));
+
+        return $comment;
+    }
+
+    // Suppression d'un commentaire 
+    public function deleteComment($commentId) {
+        $comment = $this->db->prepare('DELETE from blog_comment WHERE id = ?')
+        or die(var_dump($this->db->errorInfo()));
+    
+        $deleteComment = $report->execute(array($commentId));
+    
+        return $deleteComment;
     }
 }

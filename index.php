@@ -42,8 +42,6 @@ try {
         }
         elseif ($_GET['action'] == 'connected') {
             $controller->connected();
-        // } elseif ($_GET['action'] == 'contact') {
-        //     contact();
         } 
         elseif ($_GET['action'] == 'auth') {
             $controllerAdmin->auth($_POST['pseudo']);
@@ -63,7 +61,7 @@ try {
             if (isset($_SESSION) && $_SESSION['id'] > 0) {
                 $controllerAdmin->pageChapter();
             } else {
-                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
         } 
         elseif ($_GET['action'] == 'addChapter') {
@@ -74,14 +72,14 @@ try {
                     throw new Exception('Tous les champs ne sont pas remplis');
                 }
             } else {
-                throw new Exception('Vous n\'êtes pas autorisés à ajouter un chapitre.');
+                throw new Exception('Vous n\'êtes pas autorisé à ajouter un chapitre.');
             }
         } 
         elseif ($_GET['action'] == 'comment') {
             if (isset($_SESSION) && $_SESSION['id'] > 0) {
                 $controllerAdmin->comment();
             } else {
-                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
         } 
         elseif ($_GET['action'] == 'viewChangeChapter') {
@@ -92,7 +90,7 @@ try {
                     throw new Exception('Aucun chapitre trouvé !');
                 }
             } else {
-                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
             
         } 
@@ -106,7 +104,7 @@ try {
                     }
                 }
             } else {
-                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
         } 
         elseif ($_GET['action'] == 'deleteChapter') {
@@ -117,7 +115,18 @@ try {
                     throw new Exception('Impossible de supprimer ce chapitre.');
                 }
             } else {
-                throw new Exception('Vous n\'êtes pas autorisés à accéder à cet endroit.');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
+            }
+        }
+        elseif ($_GET['action'] == 'viewComment') {
+            if (isset($_SESSION)) {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $controllerAdmin->viewComment($_GET['id']);
+                } else {
+                    throw new Exception('Impossible de visualiser le commentaire.');
+                }
+            } else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
         }
     } else {

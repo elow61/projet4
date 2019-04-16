@@ -15,7 +15,7 @@ class ControllerAdmin {
         $this->helper = new Helper();
 
     }
-
+    // Authentification de l'admin
     public function auth($pseudo) {
         $adminManager = new AdminManager();
         $admin = $adminManager->getPseudo($pseudo);
@@ -37,8 +37,16 @@ class ControllerAdmin {
             }
         }
     }
+    // Déconnexion de l'admin 
+    public function sessionFinish() {
 
-    // Accès à la page profil si l'utilisateur est connecté (qui est le tableau de bord)
+        $_SESSION = array();
+        setcookie(session_name(), '', time());
+        session_destroy();
+        header('Location: index.php?action=connected');
+    }
+
+    // Accès à la page profil si l'utilisateur est connecté
     public function admin() {
 
         $chaptersManager = new ChaptersManager();
@@ -54,15 +62,8 @@ class ControllerAdmin {
         
         require(VIEW.'admin/profil.php');
     }
+    // ---------------------------------------------------------------------
 
-    public function sessionFinish() {
-
-        $_SESSION = array();
-        setcookie(session_name(), '', time());
-        session_destroy();
-        header('Location: index.php?action=connected');
-    }
-    
     // Accès à la page 'gestion' des Chapitres
     public function pageChapter() {
         $chaptersManager = new ChaptersManager();
@@ -117,6 +118,8 @@ class ControllerAdmin {
         }
     }
     
+    // ---------------------------------------------------------------------
+
     // Accès à la page des commentaires
     public function comment() {
         $commentManager = new CommentManager();
@@ -125,6 +128,13 @@ class ControllerAdmin {
         $report = $reportManager->getIdReport();
 
         require(VIEW.'admin/commentAdmin.php');
+    }
+
+    public function viewComment($commentId) {
+        $commentManager = new CommentManager();
+
+        $comment = $commentManager->getComment($_GET['id']);
+        require(VIEW.'admin/viewComment.php');
     }
 
     

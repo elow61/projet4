@@ -42,4 +42,14 @@ class ReportManager extends CommentManager {
 
         return $number->fetch();
     }
+
+    // Suppression d'un commentaire signalé
+    public function deleteReport($r_id) {
+        $report = $this->db->prepare('DELETE from report_comment WHERE id = ?')
+        or die(var_dump($this->db->errorInfo()));
+
+        $deleteReport = $report->execute(array($r_id));
+
+        return $deleteReport;
+    }
 }

@@ -51,7 +51,7 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
                                 <h2>
                                     <?= $numberReport['nb'] ?>
                                 </h2>
-                                    <span>commentaire signalé<?php if ($numberReport['nb'] > 1): ?>s<?php endif;?></span>
+                                    <span>commentaire<?php if ($numberReport['nb'] > 1): ?>s <?php endif?> signalé<?php if ($numberReport['nb'] > 1): ?>s<?php endif;?></span>
                             </div>
                         </div>
                     </div>
@@ -117,15 +117,6 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
                 </table>
             </div>
         </section>
-        <footer>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="copyright">
-                        <p>Copyright © 2019 Elodie Meunier. Tous droits réservés.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </main>
 
 <?php $main = ob_get_clean(); ?>

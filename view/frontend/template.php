@@ -26,9 +26,7 @@
             </ul>
         </nav>
     </header>
-    <body>
         <?= $section ?>
-    </body>
     <footer>
         <p>Copyright © Elodie Meunier - 2019. Tous droits réservés</p>
     </footer>

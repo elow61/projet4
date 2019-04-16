@@ -28,11 +28,11 @@
                 À compter de ce jour, il ne cessera plus de noircir les pages de carnets.
             <br>
             <br>
-                À 22 ans, il souhaite enrichir son imagination et décide donc de quitter la France pour s'exiler quelques temps au États-Unis.
-                Ce long voyage, ses rencontres, développeront chez lui des projets de Roman. En 2003, il écrira son premier roman : "Le champ du feu", mais c'est le suivant, 
+                À 22 ans, il souhaite enrichir son imagination et décide donc de quitter la France pour s'exiler quelques temps aux États-Unis.
+                Ce long voyage, ses rencontres, développeront chez lui des projets de roman. En 2003, il écrira son premier roman : "Le champ du feu", mais c'est le suivant, 
                 "Un jour viendra..." qui consacre sa rencontre avec le public. Aujour'hui, Jean revient avec un nouveau roman "Billet simple pour l'Alaska" 
                 inspiré par ses vacances passées en Alaska. Jean décide cette fois de mettre en avant première, son livre sur le web. Mais pas de panique, une édition 
-                est prévue d'ici la fin de l'année pour ceux et celles qui désirent tourner les pages d'un livre. 
+                est prévue d'ici la fin de l'année 2019 pour ceux et celles qui désirent tourner les pages d'un livre. 
             </p>
         </div>
     </section>

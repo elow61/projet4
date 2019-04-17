@@ -59,11 +59,9 @@ if (isset($_GET['report']) && $_GET['report'] == 'success') {
                     </div>                     
                     <?php else :?>
                     <!-- Bouton pour signaler -->
-                    <div class="clik" onclick="confirm('Êtes vous sûr de vouloir signaler ce commentaire ?');">
-                        <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>">
+                        <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>" onclick="return(confirm('Êtes vous sûr de vouloir signaler ce commentaire ?'));">
                             <button class="report-btn">Signaler</button>
                         </a>
-                    </div>
                     <?php endif ?>
                 </div>
                 <?php endforeach ?>

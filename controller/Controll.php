@@ -71,15 +71,11 @@ class Controll {
         $commentManager = new CommentManager();
 
         $reports = $commentManager->reportComment($commentId);
-
-        // if ($report['id_comm'] === $commentId) {
-        //     $nb_reports = $reportingManager->nb_report($commentId);
-        // } else {
-        //     $report = $reportManager->insert_report($commentId);
-        // }
+        $report = $reportManager->insert_report($commentId);
+        
 
 
-        if ($reports === false) {
+        if ($reports === false || $report === false) {
             throw new Exception('Impossible de signaler ce commentaire.');
         } else {
             header('Location: index.php?action=allChapters&id='. $chapterId . '&report=success');

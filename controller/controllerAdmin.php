@@ -155,5 +155,15 @@ class ControllerAdmin {
         }
     }
 
+    // Suppression d'un commentaire
+    public function deleteComment($commentId) {
+        $reportManager = new ReportManager();
+        $commentManager = new CommentManager();
+
+        // Supprime le commentaire dans l'ensemble de la base
+        $reportDelete = $reportManager->deleteReport($commentId);
+        $commentDelete = $commentManager->deleteComment($commentId);
+    }
+
     
 }

@@ -15,7 +15,7 @@ require_once(MODEL.'ReportManager.php');
 require_once(MODEL.'AdminManager.php');
 require_once(CLASSES.'Helper.php');
 
-class Controll {
+class Frontend {
     private $helper;
 
     public function __construct() {

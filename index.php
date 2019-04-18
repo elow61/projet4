@@ -6,15 +6,15 @@ require_once('config.php');
 // require(MODEL.'Routeur.php');
 // $routeur = new \Elodie\Projet4\Routeur\Routeur($request);
 // $routeur->renderController();
-use \Elodie\Projet4\Controller\Controll;
-use \Elodie\Projet4\Controller\ControllerAdmin;
+use \Elodie\Projet4\Controller\Frontend;
+use \Elodie\Projet4\Controller\Backend;
 use \Elodie\Projet4\Classes\Helper;
 
-require(CONTROLLER.'Controll.php');
-require(CONTROLLER.'ControllerAdmin.php');
+require(CONTROLLER.'Frontend.php');
+require(CONTROLLER.'Backend.php');
 
-$controller = new Controll();
-$controllerAdmin = new ControllerAdmin();
+$controller = new Frontend();
+$controllerAdmin = new Backend();
 $helper = new Helper();
 
 try {

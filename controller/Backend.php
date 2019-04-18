@@ -8,7 +8,7 @@ use \Elodie\Projet4\Model\ChaptersManager;
 use \Elodie\Projet4\Model\CommentManager;
 use \Elodie\Projet4\Model\ReportManager;
 
-class ControllerAdmin {
+class Backend {
     private $helper;
 
     public function __construct() {
@@ -61,7 +61,7 @@ class ControllerAdmin {
         $numberComment = $commentManager->numberComment();
         $numberChapter = $chaptersManager->numberChapter();
         
-        require(VIEW.'admin/profil.php');
+        require(VIEW.'backend/profil.php');
     }
     // ---------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ class ControllerAdmin {
         $chaptersManager = new ChaptersManager();
         $chapters = $chaptersManager->totalChapters();
 
-        require(VIEW.'admin/chapterAdmin.php');
+        require(VIEW.'backend/chapterAdmin.php');
     }
 
     // Ajout de nouveaux chapitres
@@ -90,7 +90,7 @@ class ControllerAdmin {
         $chaptersManager = new ChaptersManager();
         $chapter_single = $chaptersManager->getChapter($_GET['id']);
 
-        require(VIEW.'admin/updateChapter.php');
+        require(VIEW.'backend/updateChapter.php');
     }
 
     // Modification du chapitre 
@@ -127,7 +127,7 @@ class ControllerAdmin {
         $comments = $commentManager->allComments();
         $report = $reportManager->getIdReport();
 
-        require(VIEW.'admin/commentAdmin.php');
+        require(VIEW.'backend/commentAdmin.php');
     }
 
     // Accès à la page traitant d'un commentaire signalé
@@ -135,7 +135,7 @@ class ControllerAdmin {
         $commentManager = new CommentManager();
 
         $comment = $commentManager->getComment($_GET['id']);
-        require(VIEW.'admin/viewComment.php');
+        require(VIEW.'backend/viewComment.php');
     }
 
     // Valide le commentaire signalé

@@ -52,9 +52,6 @@ table {
 /* -------------------------- GENERAL -------------------------------- */
 body {
     font-family: 'Raleway', sans-serif;
-    /* padding-top: 60px; */
-    background-color: #f5f5f5;
-
 }
 
 button {
@@ -92,6 +89,14 @@ a:visited {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.msg_confirm  {
+    margin-top: 60px;
+    padding: 10px;
+    background-color: #33586e;
+    color: #fff;
+    text-align: center;
 }
 
 /* ----------------------- NAV -------------------------------- */

@@ -24,7 +24,8 @@ class ControllerAdmin {
         $pass_true = password_verify($_POST['mdp'], $admin['pass']);
 
         if (!$admin) {
-            header('Location: index.php?action=connected');
+            header('Location: index.php?action=connected&co=no-admin');
+            $message = '<p>Mauvais identifiant ou mot de passe</p>';
         } else {
             if ($pass_true) {
                 $_SESSION['id'] = $admin['id'];
@@ -43,7 +44,7 @@ class ControllerAdmin {
         $_SESSION = array();
         setcookie(session_name(), '', time());
         session_destroy();
-        header('Location: index.php?action=connected');
+        header('Location: index.php?action=connected&co=deco');
     }
 
     // Accès à la page profil si l'utilisateur est connecté
@@ -80,7 +81,7 @@ class ControllerAdmin {
         if ($newChapter === false) {
             throw new Exception('Impossible d\'ajouter le chapitre.');
         } else {
-            header('Location: index.php?action=pageChapter');
+            header('Location: index.php?action=pageChapter&chap=add');
         }
     }
 
@@ -100,7 +101,7 @@ class ControllerAdmin {
         if ($updateChapter === false) {
             throw new Exception('Impossible de modifier le chapitre.');
         } else {
-            header('Location: index.php?action=pageChapter');
+            header('Location: index.php?action=pageChapter&chap=modified');
         }
 
     }
@@ -113,7 +114,7 @@ class ControllerAdmin {
         if ($deleteChapter === false) {
             throw new Exception('Impossible de supprimer ce chapitre.');
         } else {
-            header('Location: index.php?action=pageChapter');
+            header('Location: index.php?action=pageChapter&chap=delete');
         }
     }
     
@@ -151,7 +152,7 @@ class ControllerAdmin {
         if ($reportValid === false || $commentValid === false) {
             throw new Exception('Impossible de valider le commentaire.');
         } else {
-            header('Location: index.php?action=comment');
+            header('Location: index.php?action=comment&comm=validate');
         }
     }
 
@@ -161,8 +162,14 @@ class ControllerAdmin {
         $commentManager = new CommentManager();
 
         // Supprime le commentaire dans l'ensemble de la base
-        $reportDelete = $reportManager->deleteReport($commentId);
-        $commentDelete = $commentManager->deleteComment($commentId);
+        $reportDelete = $reportManager->deleteReport($_GET['id']);
+        $commentDelete = $commentManager->deleteComment($_GET['id']);
+
+        if ($reportDelete === false || $commentDelete === false) {
+            throw new Exception('Impossible de supprimer le commentaire.');
+        } else {
+            header('Location: index.php?action=comment&comm=delete');
+        }
     }
 
     

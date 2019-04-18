@@ -18,7 +18,7 @@ $title = "Modification du " . htmlspecialchars_decode($chapter_single['title']);
                     <?= nl2br(htmlspecialchars_decode($chapter_single['chapter']))?>
                 </textarea>
             </div>
-            <button class="btn btn-success" type="submit">Modifier</button>
+            <button class="btn btn-success" onclick="return(confirm('Êtes-vous sûr de vouloir modifier ce chapitre?'));" type="submit">Modifier</button>
         </form>
         
     </section>

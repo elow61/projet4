@@ -5,6 +5,19 @@
         <section class="chapter-management">
             <h2>Liste de vos chapitres</h2>
             <hr>
+            <?php 
+                if (isset($_GET['chap']) && $_GET['chap'] === 'add') {
+                    echo '<div class="alert alert-info">Le chapitre a bien été ajouté.</div>';
+                }
+
+                if (isset($_GET['chap']) && $_GET['chap'] === 'modified') {
+                    echo '<div class="alert alert-success">Le chapitre a bien été modifié.</div>';
+                }
+
+                if (isset($_GET['chap']) && $_GET['chap'] === 'delete') {
+                    echo '<div class="alert alert-danger">Le chapitre a bien été supprimé.</div>';
+                }
+            ?>
             <div class="tab">
                 <table class="table table-light table-hover">
                     <thead>
@@ -29,7 +42,7 @@
                                 </a>  
                             </td>
                             <td> 
-                                <a id="link-delete" href="index.php?action=deleteChapter&id=<?= $data['id'] ?>">
+                                <a id="link-delete" href="index.php?action=deleteChapter&id=<?= $data['id'] ?>" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer ce chapitre ?'));">
                                     <button type="button" class="btn btn-danger">Supprimer</button>
                                 </a>  
                             </td>

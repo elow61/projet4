@@ -6,6 +6,15 @@ ob_start();
     <section class="reporting-comments">
     <h2>Liste des commentaires signalés</h2>
         <hr>
+        <?php 
+            if (isset($_GET['comm']) && $_GET['comm'] === 'validate') {
+                echo '<div class="alert alert-info">Le commentaire a bien été validé.</div>';
+            }
+
+            if (isset($_GET['comm']) && $_GET['comm'] === 'delete') {
+                echo '<div class="alert alert-danger">Le commentaire a bien été supprimé de la base de donnée.</div>';
+            }
+            ?>
         <div class="tab">
             <table class="table table-light table-hover">
                 <thead>

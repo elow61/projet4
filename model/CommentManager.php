@@ -94,7 +94,7 @@ class CommentManager extends Manager {
         $comment = $this->db->prepare('DELETE from blog_comment WHERE id = ?')
         or die(var_dump($this->db->errorInfo()));
     
-        $deleteComment = $report->execute(array($commentId));
+        $deleteComment = $comment->execute(array($commentId));
     
         return $deleteComment;
     }

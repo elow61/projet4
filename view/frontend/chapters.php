@@ -1,9 +1,4 @@
-<?php $title = 'Chapitres - Le blog de Jean Forteroche';
-
-if (isset($_GET['report']) && $_GET['report'] == 'success') {
-    echo 'Le commentaire est bien signalé et sera traité dans les meilleurs délais. Merci.';
-}
-?>
+<?php $title = 'Chapitres - Le blog de Jean Forteroche'; ?>
 <?php ob_start(); ?>
     <div class="bg-head">
         <p class="mess-head">Liste des chapitres.</p>
@@ -24,6 +19,11 @@ if (isset($_GET['report']) && $_GET['report'] == 'success') {
             </ul>
         </div>
     </nav>
+        <?php 
+        if (isset($_GET['report']) && $_GET['report'] == 'success') {
+            echo '<p class="msg_confirm">Le commentaire est bien signalé et sera traité dans les meilleurs délais. Merci.</p>';
+        }
+        ?>
     <div id="container-page">
         <section class=chapter>
             <div>
@@ -52,7 +52,7 @@ if (isset($_GET['report']) && $_GET['report'] == 'success') {
                         <p class="text-comment"> <?= nl2br(htmlspecialchars($data_comment['comment'])) ?> </p>
                         <br>
                     </div>
-                    <?php if ($data_comment['report'] === "1"): ?>
+                    <?php if ($data_comment['report'] == 1): ?>
                     <!-- Message de signalement -->
                     <div class="bubble-mess">
                         <p class="mess-report">Commentaire signalé, en cours de traitement.</p>

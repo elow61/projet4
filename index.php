@@ -9,6 +9,7 @@ require_once('config.php');
 use \Elodie\Projet4\Controller\Frontend;
 use \Elodie\Projet4\Controller\Backend;
 use \Elodie\Projet4\Classes\Helper;
+use \Elodie\Projet4\Classes\Error;
 
 require(CONTROLLER.'Frontend.php');
 require(CONTROLLER.'Backend.php');
@@ -16,6 +17,7 @@ require(CONTROLLER.'Backend.php');
 $controller = new Frontend();
 $controllerAdmin = new Backend();
 $helper = new Helper();
+$error = new Error();
 
 try {
     if (isset($_GET['action'])) {
@@ -160,5 +162,6 @@ try {
     }
 
 } catch (Exception $e) {
-    echo 'Erreur :' .$e->getMessage();
+    $errorMess = $e->getMessage();
+    require(VIEW.'frontend/errorView.php');
 }

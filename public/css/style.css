@@ -681,3 +681,10 @@ footer p {
     position: relative;
     top: 50%;
 }
+
+/* ------------------------ ERROR ------------------------------- */
+
+.body-error {
+    background-color: #2E3841;
+    color: #fff;
+}

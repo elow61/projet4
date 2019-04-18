@@ -671,7 +671,6 @@ footer {
     height: 100px;
     background-color: #2E3841;
     position: relative;
-    /* top: 0; */
     bottom: 0;
     z-index: 2;
     color: #fff;

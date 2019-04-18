@@ -54,7 +54,6 @@ try {
                 $controllerAdmin->admin();
             } else {
                 throw new Exception('Vous n\'êtes pas connectés.');
-                header('Location: index.php?action=connected');
             }
         } 
         elseif ($_GET['action'] == 'sessionFinish') {
@@ -147,8 +146,14 @@ try {
             if ($helper->is_connected()) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $controllerAdmin->deleteComment($_GET['id']);
-                }
+                } else {
+                    throw new Exception('Impossible de supprimer le commentaire.');
+                } 
+            } else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
+        } elseif ($_GET['action'] == 'error') {
+            require(VIEW.'frontend/pageError.php');
         }
     } else {
         $controller->resumeChapter();

@@ -6,13 +6,16 @@ require_once('config.php');
 // require(MODEL.'Routeur.php');
 // $routeur = new \Elodie\Projet4\Routeur\Routeur($request);
 // $routeur->renderController();
+use \Elodie\Projet4\Controller\Controll;
+use \Elodie\Projet4\Controller\ControllerAdmin;
+use \Elodie\Projet4\Classes\Helper;
 
 require(CONTROLLER.'Controll.php');
 require(CONTROLLER.'ControllerAdmin.php');
 
-$controller = new \Elodie\Projet4\Controller\Controll();
-$controllerAdmin = new \Elodie\Projet4\Controller\ControllerAdmin();
-
+$controller = new Controll();
+$controllerAdmin = new ControllerAdmin();
+$helper = new Helper();
 
 try {
     if (isset($_GET['action'])) {
@@ -47,7 +50,7 @@ try {
             $controllerAdmin->auth($_POST['pseudo']);
         } 
         elseif ($_GET['action'] == 'admin') {
-            if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
+            if ($helper->is_connected()) {
                 $controllerAdmin->admin();
             } else {
                 throw new Exception('Vous n\'êtes pas connectés.');
@@ -58,14 +61,14 @@ try {
             $controllerAdmin->sessionFinish();
         } 
         elseif ($_GET['action'] == 'pageChapter') {
-            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+            if ($helper->is_connected()) {
                 $controllerAdmin->pageChapter();
             } else {
                 throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
         } 
         elseif ($_GET['action'] == 'addChapter') {
-            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+            if ($helper->is_connected()) {
                 if (!empty($_POST['newTitle']) && !empty($_POST['newChapter'])) {
                     $controllerAdmin->addChapter($_POST['newTitle'], $_POST['newChapter']);
                 } else {
@@ -76,14 +79,14 @@ try {
             }
         } 
         elseif ($_GET['action'] == 'comment') {
-            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+            if ($helper->is_connected()) {
                 $controllerAdmin->comment();
             } else {
                 throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
         } 
         elseif ($_GET['action'] == 'viewChangeChapter') {
-            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+            if ($helper->is_connected()) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $controllerAdmin->viewChangeChapter($_GET['id']);
                 } else {
@@ -95,7 +98,7 @@ try {
             
         } 
         elseif ($_GET['action'] == 'changeChapter') {
-            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+            if ($helper->is_connected()) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     if (!empty($_POST['editTitle']) && !empty($_POST['editChapter'])) {
                         $controllerAdmin->changeChapter($_POST['editTitle'], $_POST['editChapter'], $_GET['id']);
@@ -108,7 +111,7 @@ try {
             }
         } 
         elseif ($_GET['action'] == 'deleteChapter') {
-            if (isset($_SESSION) && $_SESSION['id'] > 0) {
+            if ($helper->is_connected()) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $controllerAdmin->deleteChapter($_GET['id']);
                 } else {
@@ -119,7 +122,7 @@ try {
             }
         }
         elseif ($_GET['action'] == 'viewComment') {
-            if (isset($_SESSION)) {
+            if ($helper->is_connected()) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $controllerAdmin->viewComment($_GET['id']);
                 } else {
@@ -130,7 +133,7 @@ try {
             }
         }
         elseif ($_GET['action'] == 'validComment') {
-            if (isset($_SESSION)) {
+            if ($helper->is_connected()) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $controllerAdmin->validComment($_GET['id']);
                 } else {
@@ -138,6 +141,13 @@ try {
                 }
             } else {
                 throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
+            }
+        }
+        elseif ($_GET['action'] == 'deleteComment') {
+            if ($helper->is_connected()) {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $controllerAdmin->deleteComment($_GET['id']);
+                }
             }
         }
     } else {

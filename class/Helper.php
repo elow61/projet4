@@ -14,6 +14,15 @@ class Helper {
         return $text;
     }
 
+    // Méthode permettant de vérifier que l'utilisateur est connecté
+    public function is_connected() {
+        if(isset($_SESSION['id'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     
 }
 

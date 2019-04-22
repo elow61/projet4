@@ -12,6 +12,7 @@
 
 <body class="body-error">
     <section class="container_error">
+        <h2>Une erreur est survenue : </h2>
         <div class="text-mess">
             <p><?=  $errorMess; ?></p>
             <a href="index.php">Retourner sur la page d'accueil <i class="fas fa-sign-in-alt"></i></a>

@@ -11,7 +11,7 @@
             <?php foreach ($chapters as $chapter): ?>
                 <li>   
                     <a href="index.php?action=allChapters&id=<?= $chapter['id'] ?>">
-                        <button id="button"><?= htmlspecialchars($chapter['title']) ?></button>                        
+                        <button class="button"><?= htmlspecialchars($chapter['title']) ?></button>                        
                     </a>
                 </li>
             <?php endforeach; ?>
@@ -70,12 +70,12 @@
         <section class="add-comments">
             <div class="box-add-comment">
                 <h2>Ajouter un commentaire</h2>
-                <form action="index.php?action=addComment&id= <?= $chapter_single['id'] ?>" method="post">
+                <form action="index.php?action=addComment&id=<?= $chapter_single['id'] ?>" method="post">
                     <div class="label-author">
-                        <input type="text" name="author" id="author" placeholder="VOTRE PSEUDO" require>
+                        <input type="text" name="author" id="author" placeholder="VOTRE PSEUDO">
                     </div>
                     <div>
-                        <textarea name="comment" id="comment" rows="10" placeholder="VOTRE COMMENTAIRE" require></textarea>
+                        <textarea name="comment" id="comment" rows="10" placeholder="VOTRE COMMENTAIRE"></textarea>
                     </div>
                     <button type="submit">Envoyer</button>
                 </form>

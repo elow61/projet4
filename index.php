@@ -13,6 +13,7 @@ use \Elodie\Projet4\Classes\Error;
 
 require(CONTROLLER.'Frontend.php');
 require(CONTROLLER.'Backend.php');
+require(CLASSES.'Error.php');
 
 $controller = new Frontend();
 $controllerAdmin = new Backend();

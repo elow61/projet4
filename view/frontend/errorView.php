@@ -12,10 +12,10 @@
 
 <body class="body-error">
     <section class="container_error">
-        <?php 
-            echo $errorMessage;
-        ?>
-    
+        <div class="text-mess">
+            <p><?=  $errorMess; ?></p>
+            <a href="index.php">Retourner sur la page d'accueil <i class="fas fa-sign-in-alt"></i></a>
+        </div>
     </section>
     
 </body>

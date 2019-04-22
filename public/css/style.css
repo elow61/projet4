@@ -686,5 +686,24 @@ footer p {
 
 .body-error {
     background-color: #2E3841;
+    overflow: hidden;
+}
+
+.container_error {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-mess {
     color: #fff;
+    margin: auto;
+    padding-top: 300px;
+    text-transform: uppercase;
+    line-height: 1.4em;
+}
+
+.text-mess a {
+    text-transform: initial;
+    font-size: .9em;
+    color: grey;
 }

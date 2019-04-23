@@ -438,6 +438,17 @@ h1 {
     z-index: 120;
 }
 
+.button {
+    background-color: #33586e;
+    color: #fff;
+    padding: 8px;
+    border: transparent;
+    border-radius: 6px 6px 6px 6px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font: 400 11px system-ui;
+}
+
 /* Chapters */
 #container-page {
     background-color: #fff;
@@ -548,6 +559,7 @@ h1 {
     border-radius: 6px 6px 6px 6px;
     text-transform: uppercase;
     cursor: pointer;
+    font: 400 11px system-ui;
 }
 
 /* add comment */

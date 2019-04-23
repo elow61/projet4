@@ -11,7 +11,7 @@
             <?php foreach ($chapters as $chapter): ?>
                 <li>   
                     <a href="index.php?action=allChapters&id=<?= $chapter['id'] ?>">
-                        <button class="button"><?= htmlspecialchars($chapter['title']) ?></button>                        
+                        <p class="button"><?= htmlspecialchars($chapter['title']) ?></p>                        
                     </a>
                 </li>
             <?php endforeach; ?>
@@ -31,9 +31,7 @@
                     <?= htmlspecialchars_decode($chapter_single['title']) ?>
                 </h2>
                 <br />
-                <p>
-                    <?= nl2br(htmlspecialchars_decode($chapter_single['chapter'])) ?>
-                </p>
+                <?= nl2br(htmlspecialchars_decode($chapter_single['chapter'])) ?>
                 <br />
             </div>
         </section>  
@@ -60,7 +58,7 @@
                     <?php else :?>
                     <!-- Bouton pour signaler -->
                         <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>" onclick="return(confirm('Êtes vous sûr de vouloir signaler ce commentaire ?'));">
-                            <button class="report-btn">Signaler</button>
+                            <p class="report-btn">Signaler</p>
                         </a>
                     <?php endif ?>
                 </div>

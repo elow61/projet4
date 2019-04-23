@@ -37,12 +37,12 @@
                             <td> <?= nl2br(htmlspecialchars_decode($this->helper->extract($data['chapter']))) ?> </td>
                             <td> <?= $data['date_sent'] ?> </td>
                             <td> 
-                                <a id="link-update" href="index.php?action=viewChangeChapter&id=<?= $data['id'] ?>">
+                                <a href="index.php?action=viewChangeChapter&id=<?= $data['id'] ?>">
                                     <button type="button" class="btn btn-success">Modifier</button>
                                 </a>  
                             </td>
                             <td> 
-                                <a id="link-delete" href="index.php?action=deleteChapter&id=<?= $data['id'] ?>" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer ce chapitre ?'));">
+                                <a href="index.php?action=deleteChapter&id=<?= $data['id'] ?>" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer ce chapitre ?'));">
                                     <button type="button" class="btn btn-danger">Supprimer</button>
                                 </a>  
                             </td>

@@ -19,7 +19,7 @@ ob_start();
                     <button class="btn btn-danger">Supprimer</button>
                 </a>
             </div>
-    </section>
+    </div>
 </main>
 
 <?php $main = ob_get_clean(); ?>

@@ -67,7 +67,6 @@
             </nav>
         </div>
     </div>
-    <body>
 
     <?= $main; ?>
 
@@ -82,5 +81,5 @@
     </footer>
 
     <script src="<?= JS ?>admin/script.js"></script>
-    </body>
+</body>
 </html>

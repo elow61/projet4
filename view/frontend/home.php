@@ -12,7 +12,9 @@
         <div class="title">
             <h2 class="title-book">Billet simple pour l'Alaska</h2>
             <p>Découvrez l'Alaska sous une autre aurore.</p>
-            <a href="#chapitres"><button>Partez à l'aventure</button></a> 
+            <form action="#chapitres">
+                <button>Partez à l'aventure</button>
+            </form>
         </div>
     </section>
     <section id="bio">

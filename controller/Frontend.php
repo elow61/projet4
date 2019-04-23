@@ -10,7 +10,7 @@ use \Elodie\Projet4\Model\ReportManager;
 
 // Chargement des classes
 require_once(MODEL.'ChaptersManager.php');
-require_once(MODEL.'CommentManager.php');
+require_once(MODEL.'CommentsManager.php');
 require_once(MODEL.'ReportManager.php');
 require_once(MODEL.'AdminManager.php');
 require_once(CLASSES.'Helper.php');

@@ -4,7 +4,7 @@ namespace Elodie\Projet4\Model;
 
 require_once(MODEL.'Manager.php');
 
-class CommentManager extends Manager {
+class CommentsManager extends Manager {
     
     public function __construct() {
         $this->db = $this->dbConnect();

@@ -2,7 +2,7 @@
 $title = $_SESSION['pseudo'] . ", Espace commentaires"; 
 ob_start(); 
 ?>
-<main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+<main class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <section class="reporting-comments">
     <h2>Liste des commentaires signalés</h2>
         <hr>

@@ -1,7 +1,7 @@
 <?php $title = $_SESSION['pseudo'] . ", Espace chapitres"; ?>
 <?php ob_start(); ?>
 
-    <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+    <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <section class="chapter-management">
             <h2>Liste de vos chapitres</h2>
             <hr>

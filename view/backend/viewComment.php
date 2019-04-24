@@ -2,7 +2,7 @@
 $title = "Commentaire de " . $comment['author'];
 ob_start();
 ?>
-<main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+<main class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <div class="card">
         <div class="card-body">
             <h2 class="card-title">Commentaire de <?= $comment['author']?></h2>

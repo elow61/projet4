@@ -3,7 +3,7 @@ $title = "Modification du " . htmlspecialchars_decode($chapter_single['title']);
 ?>
 <?php ob_start(); ?>
 
-<main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+<main class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <section class="modif">
         <h2>Modification</h2>
         <hr>

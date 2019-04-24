@@ -5,7 +5,7 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
 <?php ob_start(); ?>
 
         <!-- Container -->
-    <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+    <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <!-- Dashbord -->
         <section id="dashboard">
             <h2>Tableau de bord</h2>

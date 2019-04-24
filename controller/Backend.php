@@ -5,7 +5,7 @@ namespace Elodie\Projet4\Controller;
 use \Elodie\Projet4\Classes\Helper;
 use \Elodie\Projet4\Model\AdminManager;
 use \Elodie\Projet4\Model\ChaptersManager;
-use \Elodie\Projet4\Model\CommentManager;
+use \Elodie\Projet4\Model\CommentsManager;
 use \Elodie\Projet4\Model\ReportManager;
 
 class Backend {
@@ -51,7 +51,7 @@ class Backend {
     public function admin() {
 
         $chaptersManager = new ChaptersManager();
-        $commentManager = new CommentManager();        
+        $commentManager = new CommentsManager();        
         $reportManager = new ReportManager();
 
         $chapters = $chaptersManager->getChapters();
@@ -122,7 +122,7 @@ class Backend {
 
     // Accès à la page des commentaires
     public function comment() {
-        $commentManager = new CommentManager();
+        $commentManager = new CommentsManager();
         $reportManager = new ReportManager();
         $comments = $commentManager->allComments();
         $report = $reportManager->getIdReport();
@@ -132,7 +132,7 @@ class Backend {
 
     // Accès à la page traitant d'un commentaire signalé
     public function viewComment($commentId) {
-        $commentManager = new CommentManager();
+        $commentManager = new CommentsManager();
 
         $comment = $commentManager->getComment($_GET['id']);
         require(VIEW.'backend/viewComment.php');
@@ -141,7 +141,7 @@ class Backend {
     // Valide le commentaire signalé
     public function validComment($commentId) {
         $reportManager = new ReportManager();
-        $commentManager = new CommentManager();
+        $commentManager = new CommentsManager();
 
         // Supprime le commentaire de la table des reports
         $reportValid = $reportManager->deleteReport($_GET['id']);
@@ -159,7 +159,7 @@ class Backend {
     // Suppression d'un commentaire
     public function deleteComment($commentId) {
         $reportManager = new ReportManager();
-        $commentManager = new CommentManager();
+        $commentManager = new CommentsManager();
 
         // Supprime le commentaire dans l'ensemble de la base
         $reportDelete = $reportManager->deleteReport($_GET['id']);

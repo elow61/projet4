@@ -5,7 +5,7 @@ namespace Elodie\Projet4\Controller;
 use \Elodie\Projet4\Classes\Helper;
 use \Elodie\Projet4\Model\AdminManager;
 use \Elodie\Projet4\Model\ChaptersManager;
-use \Elodie\Projet4\Model\CommentManager;
+use \Elodie\Projet4\Model\CommentsManager;
 use \Elodie\Projet4\Model\ReportManager;
 
 // Chargement des classes
@@ -33,7 +33,7 @@ class Frontend {
     // Chapitres contenus sur la page Chapitre
     public function allChapters() {
         $chapterManager = new ChaptersManager();
-        $commentManager = new CommentManager();
+        $commentManager = new CommentsManager();
         $reportingManager = new ReportManager();
         $chapter_single = $chapterManager->getChapter($_GET['id']);
 
@@ -49,7 +49,7 @@ class Frontend {
 
     // Ajout de commentaires
     public function addComment($chapterId, $author, $comment) {
-        $commentManager = new CommentManager();
+        $commentManager = new CommentsManager();
 
         $affectedLines = $commentManager->addToComment($chapterId, $author, $comment);
 
@@ -68,7 +68,7 @@ class Frontend {
     // Signalement de commentaires
     public function addReport($chapterId, $commentId) {
         $reportManager = new ReportManager();
-        $commentManager = new CommentManager();
+        $commentManager = new CommentsManager();
 
         $reports = $commentManager->reportComment($commentId);
         $report = $reportManager->insert_report($commentId);

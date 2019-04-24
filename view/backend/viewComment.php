@@ -11,12 +11,12 @@ ob_start();
         </div>
             <div class="card-footer bg-secondary">
                 <?php if ($comment['report'] == 1): ?>
-                    <a href="index.php?action=validComment&id=<?= $comment['id'] ?>" onclick="return(confirm('Êtes-vous sûr de vouloir valider ce commentaire ?'));">
-                        <button class="btn btn-success">Valider</button>
+                    <a class="btn btn-success" href="index.php?action=validComment&id=<?= $comment['id'] ?>" onclick="return(confirm('Êtes-vous sûr de vouloir valider ce commentaire ?'));">
+                        Valider
                     </a>
                 <?php endif;?>
-                <a href="index.php?action=deleteComment&id=<?= $comment['id'] ?>" data-toggle="tooltip" title="Le commentaire sera supprimé de la base de donnée." onclick="return(confirm('Êtes vous sûr de vouloir supprimer ce commentaire ?'));">
-                    <button class="btn btn-danger">Supprimer</button>
+                <a class="btn btn-danger" href="index.php?action=deleteComment&id=<?= $comment['id'] ?>" data-toggle="tooltip" title="Le commentaire sera supprimé de la base de donnée." onclick="return(confirm('Êtes vous sûr de vouloir supprimer ce commentaire ?'));">
+                    Supprimer
                 </a>
             </div>
     </div>

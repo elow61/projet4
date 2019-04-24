@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $title ?></title>
     <link rel="stylesheet" href="<?= CSS ?>style.css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Kalam:300,400,700|Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kalam:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="57x57" href="<?= IMAGE ?>favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?= IMAGE ?>favicon/apple-icon-60x60.png">

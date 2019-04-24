@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= CSS ?>admin/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="apple-touch-icon" sizes="57x57" href="<?= IMAGE ?>favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?= IMAGE ?>favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="<?= IMAGE ?>favicon/apple-icon-72x72.png">

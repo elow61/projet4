@@ -35,8 +35,8 @@ ob_start();
                         <td> <?= $data['chapter_id'] ?></td>
                         <td><?= $data['date_create']?></td>
                         <td>
-                            <a href="index.php?action=viewComment&id=<?= $data['id_comm']?>" class="link-view">
-                                <button type="button" class="btn btn-warning">Gérer</button>
+                            <a class="btn btn-warning" href="index.php?action=viewComment&id=<?= $data['id_comm']?>" class="link-view">
+                                Gérer
                             </a>
                         </td>
                     </tr>
@@ -69,8 +69,8 @@ ob_start();
                         <td> <?= $data['chapter_id'] ?></td>
                         <td><?= $data['date_create']?></td>
                         <td>
-                            <a href="index.php?action=viewComment&id=<?= $data['id']?>" class="link-view">
-                                <button type="button" class="btn btn-info">Voir</button>
+                            <a class="btn btn-info" href="index.php?action=viewComment&id=<?= $data['id']?>" class="link-view">
+                                Voir
                             </a>
                         </td>
                     </tr>

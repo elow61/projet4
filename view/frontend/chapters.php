@@ -58,7 +58,7 @@
                     <?php else :?>
                     <!-- Bouton pour signaler -->
                         <a href="index.php?action=report&id=<?= $data_comment['chapter_id'] ?>&commentId=<?= $data_comment['id']?>" onclick="return(confirm('Êtes vous sûr de vouloir signaler ce commentaire ?'));">
-                            <p class="report-btn">Signaler</p>
+                            <span class="report-btn">Signaler</span>
                         </a>
                     <?php endif ?>
                 </div>

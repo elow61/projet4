@@ -1,5 +1,12 @@
 <?php
-$title = "Espace Membre"; ?>
+$title = "Espace Membre"; 
+
+// Vérifie si l'administrateur est déjà en ligne. Si c'est le cas il est redirigé vers l'espace admin
+if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+    header('Location: index.php?action=admin');
+}
+
+?>
 
 <?php ob_start(); ?>
 <div class="bg-head">

@@ -70,6 +70,9 @@
                     </div>
                 </li>
                 <li class="nav-item text-nowrap">
+                    <a href="index.php" class="nav-link px-3"><i class="fas fa-eye"></i> Voir le site</a>
+                </li>
+                <li class="nav-item text-nowrap">
                     <a href="index.php?action=sessionFinish" class="nav-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                 </li>
             </ul>

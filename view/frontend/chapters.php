@@ -11,7 +11,7 @@
             <?php foreach ($chapters as $chapter): ?>
                 <li>   
                     <a href="index.php?action=allChapters&id=<?= $chapter['id'] ?>">
-                        <p class="button"><?= htmlspecialchars($chapter['title']) ?></p>                        
+                        <span class="button"><?= htmlspecialchars($chapter['title']) ?></span>
                     </a>
                 </li>
             <?php endforeach; ?>

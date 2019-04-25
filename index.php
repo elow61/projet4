@@ -2,10 +2,7 @@
 session_start();
 
 require_once('config.php');
-// $request = $_SERVER['REQUEST_URI'];
-// require(MODEL.'Routeur.php');
-// $routeur = new \Elodie\Projet4\Routeur\Routeur($request);
-// $routeur->renderController();
+
 use \Elodie\Projet4\Controller\Frontend;
 use \Elodie\Projet4\Controller\Backend;
 use \Elodie\Projet4\Classes\Helper;

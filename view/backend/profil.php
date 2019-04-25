@@ -73,25 +73,24 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
                         </tr>
                     </thead>
                     <tbody>
-                    <?php if (is_array($chapters)): ?>
-                        <?php foreach ($chapters as $data): ?>
-                        <tr>
-                            <td><?= htmlspecialchars_decode($data['title']); ?></td>
-                            <td> <?= nl2br(htmlspecialchars_decode($this->helper->extract($data['chapter']))) ?> </td>
-                            <td> <?= $data['date_sent'] ?> </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+                        <?php if (is_array($chapters)): ?>
+                            <?php foreach ($chapters as $data): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars_decode($data['title']); ?></td>
+                                    <td> <?= nl2br(htmlspecialchars_decode($this->helper->extract($data['chapter']))) ?> </td>
+                                    <td> <?= $data['date_sent'] ?> </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
-               
         </section>
         <!-- Comments -->
         <section id="commentaires">
             <br />
             <h2>Derniers commentaires</h2>
-            <hr />
+            <hr>
             <div class="tab">
                 <table class="table table-borderless table-striped table-light table-earning table-hover">
                     <thead>
@@ -103,16 +102,16 @@ $title = 'Bonjour '. $_SESSION['pseudo'] . '!';
                         </tr>
                     </thead>
                     <tbody>
-                    <?php if (is_array($comments)): ?>
-                        <?php foreach ($comments as $data_comment): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($data_comment['author']); ?></td>
-                            <td> <?= nl2br(htmlspecialchars(substr($data_comment['comment'], 0, 100))).'...' ?> </td>
-                            <td> <?= $data_comment['chapter_id'] ?> </td>
-                            <td> <?= $data_comment['date_create'] ?> </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+                        <?php if (is_array($comments)): ?>
+                            <?php foreach ($comments as $data_comment): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($data_comment['author']); ?></td>
+                                    <td> <?= nl2br(htmlspecialchars(substr($data_comment['comment'], 0, 100))).'...' ?> </td>
+                                    <td> <?= $data_comment['chapter_id'] ?> </td>
+                                    <td> <?= $data_comment['date_create'] ?> </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>

@@ -35,12 +35,40 @@
     <script>tinymce.init({ selector:'textarea' });</script>
 </head>
 <body>
+    <!-- HEADER MOBILE -->
+    <div id="header-mobile" class="header-mobile d-md-none shadow">
+        <nav class="navbar-mobile">
+            <div class="container-fluid">
+                <ul class="navbar-mobile-list list-unstyled">
+                    <li>
+                        <a href="index.php?action=admin" class="nav-link active">Tableau de bord</a>
+                    </li>
+                    <li>
+                        <a href="index.php?action=pageChapter" class="nav-link active">Chapitres</a>
+                    </li>
+                    <li>
+                        <a href="index.php?action=comment" class="nav-link active">Commentaires</a> 
+                    </li> 
+                </ul>
+            </div>
+        </nav>
+    </div>
     <!-- Header -->
     <header>
         <nav class="navbar fixed-top bg-light flex-md-nowrap p-9 shadow">
             <a href="index.php?action=admin" class="navbar-brand col-sm-3 col-md-2 mr-0">Administrateur</a>
-            <input type="text" class="form-control form-control-light w-100" placeholder="Recherche" aria-label="Search">
             <ul class="navbar-nav px-3">
+                <li class="d-md-none">
+                    <div class="header-mobile_bar">
+                        <div class="container-fluid">
+                            <button id="hamburger" class="hamburger hamburger-slider" type="button">
+                                <span class="hamburger-box">
+                                    <span class="hamburger_bar"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
                 <li class="nav-item text-nowrap">
                     <a href="index.php?action=sessionFinish" class="nav-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                 </li>
@@ -72,11 +100,9 @@
     <?= $main; ?>
 
     <footer>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="copyright">
-                    <p>Copyright © 2019 Elodie Meunier. Tous droits réservés.</p>
-                </div>
+        <div class="col-md-12">
+            <div class="copyright">
+                <p>Copyright © 2019 Elodie Meunier. Tous droits réservés.</p>
             </div>
         </div>
     </footer>

@@ -98,4 +98,14 @@ class CommentsManager extends Manager {
     
         return $deleteComment;
     }
+
+    // Suppression d'un commentaire si le chapitre est supprimé
+    public function delete_comment($chapterId) {
+        $comment = $this->db->prepare('DELETE from blog_comment WHERE chapter_id = ?')
+        or die(var_dump($this->db->errorInfo()));
+
+        $deleteComment = $comment->execute(array($chapterId));
+
+        return $deleteComment;
+    }
 }

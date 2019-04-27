@@ -52,4 +52,14 @@ class ReportManager extends CommentsManager {
 
         return $deleteReport;
     }
+
+    // Suppression d'un commentaire signalé si celui ci n'existe plus dans la table des commentaires
+    public function deleteReportComment() {
+        $report = $this->db->prepare('DELETE FROM report_comment WHERE id_comment NOT IN (SELECT id FROM blog_comment)')
+        or die(var_dump($this->db->errorInfo()));
+
+        $deleteReport = $report->execute(array());
+
+        return $deleteReport;
+    }
 }

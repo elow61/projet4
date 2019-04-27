@@ -109,9 +109,13 @@ class Backend {
     // Suppression du chapitre
     public function deleteChapter($chapterId) {
         $chaptersManager = new ChaptersManager();
+        $commentManager = new CommentsManager();
+        $reportManager = new ReportManager();
         $deleteChapter = $chaptersManager->deleteChapter($chapterId);
+        $deleteComment = $commentManager->delete_comment($chapterId);
+        $deleteReport = $reportManager->deleteReportComment();
 
-        if ($deleteChapter === false) {
+        if ($deleteChapter === false || $deleteComment === false || $deleteReport === false) {
             throw new Exception('Impossible de supprimer ce chapitre.');
         } else {
             header('Location: index.php?action=pageChapter&chap=delete');

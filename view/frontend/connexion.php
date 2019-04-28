@@ -10,7 +10,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 
 <?php ob_start(); ?>
 <div class="bg-head">
-    <p class="mess-head">Espace réservé aux administrateurs.</p>
+    <p class="mess-head">Espace réservé aux administrateurs</p>
 </div>
         <?php 
             if (isset($_GET['co']) && $_GET['co'] === 'no-admin') {

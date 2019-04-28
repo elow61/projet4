@@ -1,7 +1,7 @@
 <?php $title = 'Chapitres - Le blog de Jean Forteroche'; ?>
 <?php ob_start(); ?>
     <div class="bg-head">
-        <p class="mess-head">Liste des chapitres.</p>
+        <p class="mess-head">Liste des chapitres</p>
     </div>
 
     <nav class="list-chapter">

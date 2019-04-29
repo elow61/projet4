@@ -25,7 +25,6 @@ class Backend {
 
         if (!$admin) {
             header('Location: index.php?action=connected&co=no-admin');
-            $message = '<p>Mauvais identifiant ou mot de passe</p>';
         } else {
             if ($pass_true) {
                 $_SESSION['id'] = $admin['id'];
@@ -33,8 +32,6 @@ class Backend {
                 header('Location: index.php?action=admin');
             } else {
                 header('Location: index.php?action=connected');
-
-                $message = 'Mauvais identifiant ou mot de passe!';
             }
         }
     }

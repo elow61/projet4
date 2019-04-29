@@ -50,7 +50,7 @@ try {
             if ($helper->is_connected()) {
                 $controllerAdmin->admin();
             } else {
-                throw new Exception('Vous n\'êtes pas connectés.');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cet endroit.');
             }
         } 
         elseif ($_GET['action'] == 'sessionFinish') {

@@ -22,7 +22,5 @@ class Helper {
             return false;
         }
     }
-
-    
 }
 

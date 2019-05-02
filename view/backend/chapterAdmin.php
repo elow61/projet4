@@ -37,7 +37,7 @@
                             <td> <?= nl2br(htmlspecialchars_decode($this->helper->extract($data['chapter']))) ?> </td>
                             <td> <?= $data['date_sent'] ?> </td>
                             <td> 
-                                <a class="btn btn-succes" href="index.php?action=viewChangeChapter&id=<?= $data['id'] ?>">
+                                <a class="btn btn-success" href="index.php?action=viewChangeChapter&id=<?= $data['id'] ?>">
                                     Modifier
                                 </a>  
                             </td>
